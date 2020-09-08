@@ -7,17 +7,20 @@ A Discord REST API wrapper that allows you to access the data without running a 
 Use Git to clone Zenora since the package is not on PyPi
 
 ```bash
-git clone https://github.com/ahnaf-zamil/zenora.py
+git clone https://github.com/ahnaf-zamil/zenora
 ```
 
 ## Usage
 
 ```python
-from zenora import Zenora
 
-api = Zenora(token_type="Bot", token="your bot's token")
-guild = api.getGuild(731474249436626995)
-print(guild.name)
+import zenora
+
+api = zenora.RESTAPI("Token", "Bot")
+
+channel = api.get_channel(745224645057183824)
+
+print(channel.name)
 ```
 
 ## Contributing
