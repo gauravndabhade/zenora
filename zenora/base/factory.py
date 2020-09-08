@@ -19,6 +19,5 @@ class Factory(abc.ABC):
         Returns
         -------
         zenora.channels.GuildTextChannel
-                Partial channel object since REST API may not always provide all data
-                about channels.  
+                Zenora guild text channel object
         """
