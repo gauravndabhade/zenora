@@ -24,4 +24,9 @@ class RESTAPI(abc.ABC):
 
         snowflake: int
                 The channel ID of the specific channel you want to fetch
+                
+        Returns
+        -------
+        zenora.channels.GuildTextChannel
+                Zenora guild text channel object
         """
