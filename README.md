@@ -1,6 +1,6 @@
 # Zenora.py
 
-A Discord REST API wrapper that allows you to access the data without running a bot.
+A modern Discord REST API wrapper that allows you to access the data without running a bot.
 
 ## Installation
 
