@@ -1,6 +1,8 @@
 import typing
+
+from flask.wrappers import ResponseBase
 from zenora.base.rest import RESTAPI as REST
-#from zenora.utils.factory import factory as model_factory
+from zenora.impl.factory import Factory as model_factory
 from zenora.impl.query import Query
 
 
@@ -20,7 +22,11 @@ class RESTAPI(REST):
 
         snowflake: int
                 The channel ID of the specific channel you want to fetch
+
+        Returns
+        -------
+        zenora.channels.GuildTextChannel
+                Zenora guild text channel object
         """
         response = Query(self.token, self.token_type).channel(snowflake)
-        print(response)
-        # return model_factory.parse_channel(response, snowflake)
+        return model_factory.parse_channel(response)
