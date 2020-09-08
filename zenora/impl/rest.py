@@ -1,7 +1,7 @@
 import typing
 from zenora.base.rest import RESTAPI as REST
 #from zenora.utils.factory import factory as model_factory
-from zenora.utils.query import Query
+from zenora.impl.query import Query
 
 
 class RESTAPI(REST):
@@ -14,9 +14,6 @@ class RESTAPI(REST):
 
     def get_channel(self, snowflake: int) -> None:
         """Fetch channels
-
-        This has to be the channel snowflake ID
-
 
         Parameters
         ----------
