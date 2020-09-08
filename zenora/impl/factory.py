@@ -18,9 +18,8 @@ class Factory(BaseFactory):
 
         Returns
         -------
-        zenora.channels.PartialChannel
-                Partial channel object since REST API may not always provide all data
-                about channels.
+        zenora.channels.GuildTextChannel
+                Zenora guild text channel object
         """
         return zenora.channels.GuildTextChannel(
             data=response
