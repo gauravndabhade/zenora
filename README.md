@@ -1,6 +1,10 @@
 # Zenora.py
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
+
+
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahnaf-zamil/zenora?include_prereleases)
+
 
 A modern Discord REST API wrapper that allows you to access the data without running a bot.
 
@@ -42,6 +46,7 @@ of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 copies of the Software, and to permit persons to whom the Software is
+
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
