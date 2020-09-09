@@ -10,10 +10,16 @@ A modern Discord REST API wrapper that allows you to access the data without run
 
 ## Installation
 
-Use Git to clone Zenora since the package is not on PyPi
+Use Git to clone Zenora's source code
 
 ```bash
 git clone https://github.com/ahnaf-zamil/zenora
+```
+
+Install from PyPi
+
+```bash
+python -m pip install zenora
 ```
 
 ## Usage
