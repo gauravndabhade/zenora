@@ -18,17 +18,19 @@ import zenora
 
 api = zenora.RESTAPI("Token", "Bot")
 
-channel = api.get_channel(745224645057183824)
+channel = api.get_text_channel(745224645057183824)
 
 print(channel.name)
 ```
 
 ## Contributing
+
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/) License
 
 Copyright (c) 2020 K.M Ahnaf Zamil
