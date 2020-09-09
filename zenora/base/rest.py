@@ -13,8 +13,8 @@ class RESTAPI(abc.ABC):
         self.token_type = token_type
 
     @abc.abstractmethod
-    def get_channel(self, snowflake: int) -> None:
-        """Fetch channels
+    def get_text_channel(self, snowflake: int) -> None:
+        """Fetch guild text channel
 
         This has to be the channel snowflake ID
 
@@ -24,7 +24,7 @@ class RESTAPI(abc.ABC):
 
         snowflake: int
                 The channel ID of the specific channel you want to fetch
-                
+
         Returns
         -------
         zenora.channels.GuildTextChannel

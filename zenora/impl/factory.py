@@ -3,6 +3,7 @@ import datetime
 
 import zenora
 from zenora.base.factory import Factory as BaseFactory
+from zenora.impl.mapper import ChannelMapper
 
 
 class Factory(BaseFactory):
@@ -21,6 +22,5 @@ class Factory(BaseFactory):
         zenora.channels.GuildTextChannel
                 Zenora guild text channel object
         """
-        return zenora.channels.GuildTextChannel(
-            data=response
-        )
+
+        return ChannelMapper.map(response)

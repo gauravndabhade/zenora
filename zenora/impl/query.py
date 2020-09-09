@@ -14,7 +14,7 @@ class Query:
         """Implementation for the REST API query to get channels.
 
         Parameters:
-        snowflask: int
+        snowflake: int
                 The channel ID of a Discord channel
 
         Returns:

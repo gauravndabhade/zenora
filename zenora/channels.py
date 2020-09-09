@@ -55,10 +55,23 @@ class GuildTextChannel:
         return self.data['permission_overwrites']
 
     @property
-    def parent_id(self) -> datetime.timedelta:
+    def category_id(self) -> datetime.timedelta:
         """Returns the snowflake ID of the parant category of the channel."""
         return self.data['parent_id']
 
     def __str__(self):
         """String representation of the model."""
-        return f"GuildTextChannel(id={self.id}, name={self.name}, position={self.position}, guild_id={self.guild_id}, topic={self.topic}, is_nsfw={self.is_nsfw}, last_message_id={self.last_message_id}, rate_limit_per_user={self.rate_limit_per_user}, permission_overwrites={self.permission_overwrites}, parent_id={self.parent_id})"
+        attrs = [
+            ('id', self.id),
+            ('name', self.name),
+            ('position', self.position),
+            ('is_nsfw', self.is_nsfw),
+            ('permission_overwrites', self.permission_overwrites),
+            ('category_id', self.category_id),
+            ('guild_id', self.guild_id),
+            ('topic', self.topic),
+            ('last_message_id', self.last_message_id),
+            ('rate_limit_per_user', self.rate_limit_per_user),
+
+        ]
+        return '%s(%s)' % (self.__class__.__name__, ' '.join('%s=%r' % i for i in attrs))

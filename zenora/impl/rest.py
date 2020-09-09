@@ -14,8 +14,8 @@ class RESTAPI(REST):
         self.token = token
         self.token_type = token_type
 
-    def get_channel(self, snowflake: int) -> None:
-        """Fetch channels
+    def get_text_channel(self, snowflake: int) -> None:
+        """Fetch guild text channel
 
         Parameters
         ----------
