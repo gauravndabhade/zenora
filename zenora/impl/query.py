@@ -4,7 +4,7 @@ from zenora.utils.endpoints import *
 
 
 class Query:
-    __slots__ = ['token', 'token_type']
+    __slots__ = ["token", "token_type"]
 
     def __init__(self, token: str, token_type: str):
         self.token = token
@@ -21,6 +21,8 @@ class Query:
         typing.Dict: A dictionary object that will be used to parse the data
             into objects
         """
-        data = fetch(BASE_URL + FETCH_CHANNEL.format(snowflake),
-                     headers={'Authorization': f"{self.token_type} {self.token}"})
+        data = fetch(
+            BASE_URL + FETCH_CHANNEL.format(snowflake),
+            headers={"Authorization": f"{self.token_type} {self.token}"},
+        )
         return data

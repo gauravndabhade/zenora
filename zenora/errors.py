@@ -1,0 +1,2 @@
+class MissingAccess(Exception):
+    pass
