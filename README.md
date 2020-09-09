@@ -1,10 +1,8 @@
 # Zenora.py
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahnaf-zamil/zenora?include_prereleases)
-
 
 A modern Discord REST API wrapper that allows you to access the data without running a bot.
 
@@ -36,6 +34,10 @@ channel = api.get_text_channel(745224645057183824)
 
 print(channel.name)
 ```
+
+## Documentation
+
+Check out the documentation at https://zenora-py.github.io
 
 ## Contributing
 
