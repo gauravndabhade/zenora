@@ -16,6 +16,8 @@ Use Git to clone Zenora's source code
 git clone https://github.com/ahnaf-zamil/zenora
 ```
 
+Or
+
 Install from PyPi
 
 ```bash
