@@ -1,5 +1,7 @@
 # Zenora.py
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A modern Discord REST API wrapper that allows you to access the data without running a bot.
 
 ## Installation
