@@ -1,3 +1,26 @@
+# Zenora, a modern Python API wrapper for the Discord REST API
+#
+# Copyright (c) 2020 K.M Ahnaf Zamil
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
+
 import typing
 import zenora
 from zenora.base.rest import RESTAPI as REST
@@ -38,3 +61,24 @@ class RESTAPI(REST):
         """
         response = Query(self.token, self.token_type).channel(snowflake)
         return model_factory.parse_channel(response)
+
+    def get_user(self, snowflake: int) -> typing.Any:
+        """Fetch Dicord User
+
+        This has to be the user's snowflake ID
+
+
+        Parameters
+        ----------
+
+        snowflake: int
+                The channel ID of the specific channel you want to fetch
+
+        Returns
+        -------
+        zenora.users.PartialUser
+                Zenora partial user object
+
+        """
+        response = Query(self.token, self.token_type).user(snowflake)
+        return model_factory.parse_user(response, snowflake)

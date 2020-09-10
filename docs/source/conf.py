@@ -23,7 +23,7 @@ copyright = "2020, K.M Ahnaf Zamil"
 author = "K.M Ahnaf Zamil"
 
 # The full version, including alpha/beta/rc tags
-release = "0.0.20"
+release = "0.0.29"
 version = release
 
 # -- General configuration ---------------------------------------------------

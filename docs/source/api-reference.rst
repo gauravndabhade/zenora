@@ -31,15 +31,23 @@ Class Implementations
 -----
 
 Channels
-=================
+========
 .. automodule:: zenora.channels
     :members:
     :member-order: groupwise
 
 -----
 
+Users
+=====
+.. automodule:: zenora.users
+    :members:
+    :member-order: groupwise
+
+-----
+
 Errors
-=================
+======
 .. automodule:: zenora.errors
     :members:
     :member-order: groupwise
@@ -47,7 +55,7 @@ Errors
 ----
 
 Base Classes
-=================
+============
 .. automodule:: zenora.base.rest
     :members:
     :member-order: groupwise
