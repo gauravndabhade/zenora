@@ -1,4 +1,5 @@
-
+# Zenora, a modern Python API wrapper for the Discord REST API
+#
 # Copyright (c) 2020 K.M Ahnaf Zamil
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy

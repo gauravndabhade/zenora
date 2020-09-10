@@ -27,3 +27,21 @@ class Factory(abc.ABC):
         zenora.channels.DMTextChannel
                 Zenora DM text channel object
         """
+
+    @abc.abstractmethod
+    def parse_user(self, response: typing.Dict, snowflake: int) -> typing.Any:
+        """Interface of data parser for user object
+
+        Parameters
+        ----------
+        response: typing.Dict
+                Discord API response as dictionary/JSON
+        snowflake: int
+                Snowflake ID of the channel
+
+        Returns
+        -------
+        zenora.users.PartialUser
+                Zenora partial user object
+
+        """

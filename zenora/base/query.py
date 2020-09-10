@@ -14,7 +14,20 @@ class Query(abc.ABC):
         """Interface for the REST API query to get channels.
 
         Parameters:
-        snowflask: int
+        snowflake: int
+                The channel ID of a Discord channel
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+
+    @abc.abstractmethod
+    def user(self, snowflake: int) -> typing.Dict:
+        """Interface for the REST API query to get user.
+
+        Parameters:
+        snowflake: int
                 The channel ID of a Discord channel
 
         Returns:
