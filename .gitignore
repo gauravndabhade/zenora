@@ -2,3 +2,6 @@ test.py
 *__pycache__/
 *.pyc
 test_config.py
+zenora.egg-info/
+build/
+dist/
