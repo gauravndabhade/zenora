@@ -89,6 +89,7 @@
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-0-29-alpha">Version 0.0.29-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-0-20-alpha">Version 0.0.20-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-0-19-alpha">Version 0.0.19-alpha</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-0-11-alpha">Version 0.0.11-alpha</a></li>
@@ -163,6 +164,15 @@
 <h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <p>Here you will find the changelogs for most if not every Zenora update since version <strong>0.0.11</strong>.</p>
 <p>If you think anything is missing, make a pull request to add it, or contact me on discord.</p>
+<div class="section" id="version-0-0-29-alpha">
+<h2>Version 0.0.29-alpha<a class="headerlink" href="#version-0-0-29-alpha" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">PartialUser</span></code> object and accessor methods because the API doesn’t return all fields as shown in documentation.</p></li>
+<li><p>Converted <code class="docutils literal notranslate"><span class="pre">zenora.channels.DMTextChannel.recipients</span></code> to list of <code class="docutils literal notranslate"><span class="pre">PartialUser</span></code> objects instead of dict.</p></li>
+<li><p>Added error raising for <code class="docutils literal notranslate"><span class="pre">PartialUser</span></code> object in case of the usage of invalid snowflake ID as argument in accessor method.</p></li>
+<li><p>Released Zenora v0.0.29-alpha.</p></li>
+</ul>
+</div>
 <div class="section" id="version-0-0-20-alpha">
 <h2>Version 0.0.20-alpha<a class="headerlink" href="#version-0-0-20-alpha" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">

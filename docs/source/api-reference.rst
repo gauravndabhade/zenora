@@ -23,10 +23,12 @@ Class Implementations
 .. automodule:: zenora.impl.mapper
     :members:
     :member-order: groupwise
+    :show-inheritance:
 
 .. automodule:: zenora.impl.query
     :members:
     :member-order: groupwise
+    :show-inheritance:
 
 -----
 
