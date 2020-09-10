@@ -104,14 +104,14 @@ class DMTextChannel:
         return self.data["id"]
 
     @property
-    def name(self) -> typing.Optional[str]:
-        """Returns the name of the channel."""
-        return self.data["name"]
+    def last_message_id(self) -> typing.Optional[int]:
+        """Returns The last message ID of the channel."""
+        return self.data["last_message_id"]
 
     @property
-    def position(self) -> typing.Optional[int]:
-        """Returns the position of the channel."""
-        return self.data["position"]
+    def recipients(self) -> typing.Optional[dict]:
+        """Returns The recipients of the channel."""
+        return self.data["recipients"]
 
     def __str__(self):
         """String representation of the model."""
