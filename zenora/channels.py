@@ -23,6 +23,7 @@
 
 import typing
 import datetime
+from zenora.users import PartialUser
 
 
 class GuildTextChannel:
@@ -132,9 +133,13 @@ class DMTextChannel:
         return self.data["last_message_id"]
 
     @property
-    def recipients(self) -> typing.Optional[dict]:
-        """Returns The recipients of the channel."""
-        return self.data["recipients"]
+    def recipients(self) -> typing.List[PartialUser]:
+        """Returns The recipients of the channel.
+
+        :return: List of Zenora partial user objects
+        :rtype: typing.List[PartialUser]
+        """
+        return [PartialUser(i) for i in self.data["recipients"]]
 
     def __str__(self):
         """String representation of the model."""
