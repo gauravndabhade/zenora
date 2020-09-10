@@ -4,9 +4,8 @@ from zenora.channels import GuildTextChannel
 
 
 class ChannelMapper(abc.ABC):
-
     @abc.abstractmethod
-    def map(self, response) -> typing.Optional[GuildTextChannel]:
+    def map(self, response) -> typing.Any:
         """Interface of channel mapper
 
         Maps channel response to object according to channel type.
@@ -19,5 +18,11 @@ class ChannelMapper(abc.ABC):
         Returns
         -------
         zenora.channels.GuildTextChannel
-                Zenora text channel model consisting of channel data.
+                Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
         """

@@ -6,7 +6,7 @@ import zenora
 
 class Factory(abc.ABC):
     @abc.abstractmethod
-    def parse_channel(self, response: typing.Dict, snowflake: int):
+    def parse_channel(self, response: typing.Dict, snowflake: int) -> typing.Any:
         """Interface of data parser for channel object
 
         Parameters
@@ -20,4 +20,10 @@ class Factory(abc.ABC):
         -------
         zenora.channels.GuildTextChannel
                 Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
         """

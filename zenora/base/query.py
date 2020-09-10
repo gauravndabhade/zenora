@@ -3,7 +3,7 @@ import typing
 
 
 class Query(abc.ABC):
-    __slots__ = ['token', 'token_type']
+    __slots__ = ["token", "token_type"]
 
     def __init__(self, token: str, token_type: str):
         self.token = token

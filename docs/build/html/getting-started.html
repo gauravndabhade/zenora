@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Started &mdash; Zenora 0.0.11 documentation</title>
+  <title>Getting Started &mdash; Zenora 0.0.20 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Changelog" href="changelog.html" />
+    <link rel="next" title="API Reference" href="api-reference.html" />
     <link rel="prev" title="Zenora" href="index.html" /> 
 </head>
 
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.0.11
+                0.0.20
               </div>
             
           
@@ -91,8 +91,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#accessing-the-api">Accessing the API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -176,9 +176,9 @@ versions that Requests also supports.</p>
 <span class="c1"># Instantiate a REST API instance</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">zenora</span><span class="o">.</span><span class="n">RESTAPI</span><span class="p">(</span><span class="n">token</span><span class="o">=</span><span class="s2">&quot;your_token_here&quot;</span><span class="p">,</span> <span class="n">token_type</span><span class="o">=</span><span class="s2">&quot;your_token_type_here&quot;</span><span class="p">)</span>
 
-<span class="c1"># Query API for getting text channel</span>
+<span class="c1"># Query API for getting channel</span>
 <span class="c1"># Zenora parses API response into Python objects for accessing data</span>
-<span class="n">channel</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_text_channel</span><span class="p">(</span><span class="mi">732595879747256371</span><span class="p">)</span>
+<span class="n">channel</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">get_channel</span><span class="p">(</span><span class="mi">732595879747256371</span><span class="p">)</span>
 
 <span class="c1"># Use the data</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">channel</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -200,7 +200,7 @@ Bearer tokens are used for accessing the API data on behalf of a user account fo
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="changelog.html" class="btn btn-neutral float-right" title="Changelog" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api-reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Zenora" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

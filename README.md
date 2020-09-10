@@ -1,8 +1,6 @@
 # Zenora.py
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahnaf-zamil/zenora?include_prereleases)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Pypi](https://img.shields.io/pypi/v/zenora.svg) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahnaf-zamil/zenora?include_prereleases)
 
 A modern Discord REST API wrapper that allows you to access the data without running a bot.
 
@@ -26,13 +24,19 @@ python -m pip install zenora
 
 ```python
 
-import zenora
+    # Import the library
+    import zenora
 
-api = zenora.RESTAPI("Token", "Bot")
+    # Instantiate a REST API instance
+    api = zenora.RESTAPI(token="your_token_here", token_type="your_token_type_here")
 
-channel = api.get_text_channel(745224645057183824)
+    # Query API for getting channel
+    # Zenora parses API response into Python objects for accessing data
+    channel = api.get_channel(732595879747256371)
 
-print(channel.name)
+    # Use the data
+    print(channel.name)
+
 ```
 
 ## Documentation

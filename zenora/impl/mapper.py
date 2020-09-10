@@ -5,7 +5,7 @@ from zenora.errors import MissingAccess
 
 
 class ChannelMapper(BaseChannelMapper):
-    def map(response) -> typing.Optional[GuildTextChannel]:
+    def map(response) -> typing.Any:
         """Implementation of the channel mapper.
 
         Maps channel response to object according to channel type.
@@ -18,7 +18,13 @@ class ChannelMapper(BaseChannelMapper):
         Returns
         -------
         zenora.channels.GuildTextChannel
-                Zenora text channel model consisting of channel data.
+                Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
         """
         if "code" in response and response["code"] == 50001:
             raise MissingAccess("You don't have access to this channel")

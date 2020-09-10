@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Zenora 0.0.11 documentation</title>
+  <title>Index &mdash; Zenora 0.0.20 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.11
+                0.0.20
               </div>
             
           
@@ -86,8 +86,8 @@
             
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api-reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -165,6 +165,7 @@
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
@@ -189,6 +190,16 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.base.query.Query.channel">channel() (zenora.base.query.Query method)</a>
+</li>
+      <li><a href="api-reference.html#zenora.base.mapper.ChannelMapper">ChannelMapper (class in zenora.base.mapper)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.mapper.ChannelMapper">(class in zenora.impl.mapper)</a>
+</li>
+      </ul></li>
+  </ul></td>
 </tr></table>
 
 <h2 id="D">D</h2>
@@ -202,28 +213,32 @@
 <h2 id="F">F</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.impl.factory.Factory">Factory (class in zenora.impl.factory)</a>
+      <li><a href="api-reference.html#zenora.base.factory.Factory">Factory (class in zenora.base.factory)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.factory.Factory">(class in zenora.impl.factory)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_dm_channel">get_dm_channel() (zenora.impl.rest.RESTAPI method)</a>
+      <li><a href="api-reference.html#zenora.base.rest.RESTAPI.get_channel">get_channel() (zenora.base.rest.RESTAPI method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_channel">(zenora.impl.rest.RESTAPI method)</a>
 </li>
-      <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_text_channel">get_text_channel() (zenora.impl.rest.RESTAPI method)</a>
-</li>
-      <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_voice_channel">get_voice_channel() (zenora.impl.rest.RESTAPI method)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
+      </ul></li>
       <li><a href="api-reference.html#zenora.channels.GuildTextChannel.guild_id">guild_id() (zenora.channels.GuildTextChannel property)</a>
 
       <ul>
         <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.guild_id">(zenora.channels.GuildVoiceChannel property)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.channels.GuildTextChannel">GuildTextChannel (class in zenora.channels)</a>
 </li>
       <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel">GuildVoiceChannel (class in zenora.channels)</a>
@@ -264,17 +279,35 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.base.mapper.ChannelMapper.map">map() (zenora.base.mapper.ChannelMapper method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.mapper.ChannelMapper.map">(zenora.impl.mapper.ChannelMapper method)</a>
+</li>
+      </ul></li>
       <li><a href="api-reference.html#zenora.errors.MissingAccess">MissingAccess</a>
 </li>
       <li>
     module
 
       <ul>
+        <li><a href="api-reference.html#module-zenora.base.factory">zenora.base.factory</a>
+</li>
+        <li><a href="api-reference.html#module-zenora.base.mapper">zenora.base.mapper</a>
+</li>
+        <li><a href="api-reference.html#module-zenora.base.query">zenora.base.query</a>
+</li>
+        <li><a href="api-reference.html#module-zenora.base.rest">zenora.base.rest</a>
+</li>
         <li><a href="api-reference.html#module-zenora.channels">zenora.channels</a>
 </li>
         <li><a href="api-reference.html#module-zenora.errors">zenora.errors</a>
 </li>
         <li><a href="api-reference.html#module-zenora.impl.factory">zenora.impl.factory</a>
+</li>
+        <li><a href="api-reference.html#module-zenora.impl.mapper">zenora.impl.mapper</a>
+</li>
+        <li><a href="api-reference.html#module-zenora.impl.query">zenora.impl.query</a>
 </li>
         <li><a href="api-reference.html#module-zenora.impl.rest">zenora.impl.rest</a>
 </li>
@@ -299,8 +332,12 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.impl.factory.Factory.parse_channel">parse_channel() (zenora.impl.factory.Factory method)</a>
+      <li><a href="api-reference.html#zenora.base.factory.Factory.parse_channel">parse_channel() (zenora.base.factory.Factory method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.factory.Factory.parse_channel">(zenora.impl.factory.Factory method)</a>
 </li>
+      </ul></li>
       <li><a href="api-reference.html#zenora.channels.GuildTextChannel.permission_overwrites">permission_overwrites() (zenora.channels.GuildTextChannel property)</a>
 
       <ul>
@@ -320,6 +357,14 @@
   </ul></td>
 </tr></table>
 
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.base.query.Query">Query (class in zenora.base.query)</a>
+</li>
+  </ul></td>
+</tr></table>
+
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -327,8 +372,12 @@
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.impl.rest.RESTAPI">RESTAPI (class in zenora.impl.rest)</a>
+      <li><a href="api-reference.html#zenora.base.rest.RESTAPI">RESTAPI (class in zenora.base.rest)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.rest.RESTAPI">(class in zenora.impl.rest)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -352,12 +401,42 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
+    zenora.base.factory
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.base.factory">module</a>
+</li>
+      </ul></li>
+      <li>
+    zenora.base.mapper
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.base.mapper">module</a>
+</li>
+      </ul></li>
+      <li>
+    zenora.base.query
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.base.query">module</a>
+</li>
+      </ul></li>
+      <li>
+    zenora.base.rest
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.base.rest">module</a>
+</li>
+      </ul></li>
+      <li>
     zenora.channels
 
       <ul>
         <li><a href="api-reference.html#module-zenora.channels">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     zenora.errors
 
@@ -365,13 +444,25 @@
         <li><a href="api-reference.html#module-zenora.errors">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     zenora.impl.factory
 
       <ul>
         <li><a href="api-reference.html#module-zenora.impl.factory">module</a>
+</li>
+      </ul></li>
+      <li>
+    zenora.impl.mapper
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.impl.mapper">module</a>
+</li>
+      </ul></li>
+      <li>
+    zenora.impl.query
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.impl.query">module</a>
 </li>
       </ul></li>
       <li>

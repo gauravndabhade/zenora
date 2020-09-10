@@ -7,7 +7,7 @@ from zenora.impl.mapper import ChannelMapper
 
 
 class Factory(BaseFactory):
-    def parse_channel(response: typing.Dict):
+    def parse_channel(response: typing.Dict) -> typing.Any:
         """Parses response data from Dicord API into channel objects
 
         Parameters
@@ -21,6 +21,12 @@ class Factory(BaseFactory):
         -------
         zenora.channels.GuildTextChannel
                 Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
         """
 
         return ChannelMapper.map(response)

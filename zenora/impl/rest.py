@@ -13,10 +13,11 @@ class RESTAPI(REST):
         self.token = token
         self.token_type = token_type
 
-    def get_text_channel(
-        self, snowflake: int
-    ) -> typing.Optional[zenora.channels.GuildTextChannel]:
-        """Fetch guild text channel
+    def get_channel(self, snowflake: int) -> typing.Any:
+        """Fetch Dicord Channel
+
+        This has to be the channel snowflake ID
+
 
         Parameters
         ----------
@@ -28,42 +29,12 @@ class RESTAPI(REST):
         -------
         zenora.channels.GuildTextChannel
                 Zenora guild text channel object
-        """
-        response = Query(self.token, self.token_type).channel(snowflake)
-        return model_factory.parse_channel(response)
 
-    def get_dm_channel(
-        self, snowflake: int
-    ) -> typing.Optional[zenora.channels.DMTextChannel]:
-        """Fetch guild DM channel
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
 
-        Parameters
-        ----------
-
-        snowflake: int
-                The channel ID of the specific channel you want to fetch
-
-        Returns
-        -------
         zenora.channels.DMTextChannel
                 Zenora DM text channel object
         """
-        response = Query(self.token, self.token_type).channel(snowflake)
-        return model_factory.parse_channel(response)
-
-    def get_voice_channel(
-        self, snowflake: int
-    ) -> typing.Optional[zenora.channels.GuildTextChannel]:
-        """Fetch guild voice channel
-
-        :param snowflake: [description]
-        :type snowflake: int
-
-        Returns
-        -------
-        zenora.channels.GuildVoiceChannel
-            Zenora guild voice channel object
-        """
-
         response = Query(self.token, self.token_type).channel(snowflake)
         return model_factory.parse_channel(response)
