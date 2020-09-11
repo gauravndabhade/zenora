@@ -49,6 +49,11 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
+## Community
+
+Wanna hang out or collaborate with other contributers?
+Join the official Discord server [here.](https://discord.gg/2Buh3N9)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/) License
