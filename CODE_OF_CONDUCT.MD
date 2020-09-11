@@ -1,6 +1,5 @@
 ## This code of conduct outlines expectations for participation in Zenora. Our mission is to provide a welcoming and inclusive environment for all. Violation of the code will not be tolerated and may result in permanent exclusion from the Zenora community.
 
-
 ## Key Points:
 
 ### Be welcoming and patient:
