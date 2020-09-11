@@ -6,6 +6,15 @@ Here you will find the changelogs for most if not every Zenora update since vers
 
 If you think anything is missing, make a pull request to add it, or contact me on discord.
 
+Version 0.0.30-alpha
+====================
+
+- Moved response error handlers to ``zenora.utils.helpers``.
+
+- Added a nice welcome message that will be printed on module import.
+
+- Released Zenora v0.0.30-alpha.
+
 Version 0.0.29-alpha
 ====================
 
