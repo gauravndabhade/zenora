@@ -22,7 +22,7 @@
 
 
 import typing
-from zenora.utils.helpers import fetch
+from zenora.utils.helpers import fetch, error_checker
 from zenora.utils.endpoints import *
 
 
@@ -48,6 +48,7 @@ class Query:
             BASE_URL + FETCH_CHANNEL.format(snowflake),
             headers={"Authorization": f"{self.token_type} {self.token}"},
         )
+        error_checker(data)
         return data
 
     def user(self, snowflake: int) -> typing.Dict:
@@ -65,4 +66,5 @@ class Query:
             BASE_URL + FETCH_USER.format(snowflake),
             headers={"Authorization": f"{self.token_type} {self.token}"},
         )
+        error_checker(data)
         return data

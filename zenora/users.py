@@ -35,16 +35,7 @@ class PartialUser:
     __slots__ = ["data"]
 
     def __init__(self, data) -> None:
-        try:
-            if data["code"] == 10013:
-                raise InvalidUser("User with specified snowflake doesn't exist.")
-        except KeyError:
-            pass
-        try:
-            if "user_id" in data:
-                raise InvalidSnowflake("Invalid snowflake ID.")
-        except KeyError:
-            pass
+        
         self.data = data
 
     @property

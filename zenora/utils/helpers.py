@@ -23,6 +23,7 @@
 
 import typing
 import requests
+from zenora.errors import *
 
 
 def fetch(
@@ -30,3 +31,17 @@ def fetch(
 ) -> typing.Dict:
     r = requests.get(url=url, headers=headers, params=params)
     return r.json()
+
+
+def error_checker(data: typing.Dict) -> None:
+    if data.get("user_id") or data.get("channel_id"):
+        raise InvalidSnowflake(
+            data.get("user_id")[0]
+            if data.get("user_id") != None
+            else data.get("channel_id")[0]
+        )
+    elif data.get("code"):
+        if data.get("code") == 50001:
+            raise MissingAccess(data.get("message"))
+        else:
+            raise InvalidSnowflake(data.get("message"))

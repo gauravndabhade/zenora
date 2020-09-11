@@ -23,6 +23,8 @@
 
 from zenora.impl.rest import RESTAPI
 from zenora.channels import *
+from zenora.utils.misc import *
+
 
 __author__ = "K.M Ahnaf Zamil"
 __copyright__ = "© 2020 K.M Ahnaf Zamil"
@@ -33,3 +35,6 @@ __license__ = "MIT"
 __url__ = "https://github.com/ahnaf-zamil/zenora/"
 __version__ = "0.0.20"
 __git_sha1__ = "HEAD"
+
+
+print_welcome()
