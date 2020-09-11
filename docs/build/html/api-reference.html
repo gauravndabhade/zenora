@@ -89,7 +89,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#rest-api-instance">REST API Instance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-zenora.impl.rest">REST API Instance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-zenora.impl.factory">Class Implementations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-zenora.channels">Channels</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-zenora.users">Users</a></li>
@@ -165,8 +165,52 @@
             
   <div class="section" id="api-reference">
 <h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="rest-api-instance">
-<h2>REST API Instance<a class="headerlink" href="#rest-api-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-zenora.impl.rest">
+<span id="rest-api-instance"></span><h2>REST API Instance<a class="headerlink" href="#module-zenora.impl.rest" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="zenora.impl.rest.RESTAPI">
+<em class="property">class </em><code class="sig-prename descclassname">zenora.impl.rest.</code><code class="sig-name descname">RESTAPI</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">token_type</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zenora/impl/rest.html#RESTAPI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.rest.RESTAPI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#zenora.base.rest.RESTAPI" title="zenora.base.rest.RESTAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">zenora.base.rest.RESTAPI</span></code></a></p>
+<dl class="py method">
+<dt id="zenora.impl.rest.RESTAPI.get_channel">
+<code class="sig-name descname">get_channel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/zenora/impl/rest.html#RESTAPI.get_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.rest.RESTAPI.get_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch Dicord Channel</p>
+<p>This has to be the channel snowflake ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>snowflake</strong> (<em>int</em>) – The channel ID of the specific channel you want to fetch</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><em>zenora.channels.GuildTextChannel</em> – Zenora guild text channel object</p></li>
+<li><p><em>zenora.channels.GuildVoiceChannel</em> – Zenora guild voice channel object</p></li>
+<li><p><em>zenora.channels.DMTextChannel</em> – Zenora DM text channel object</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zenora.impl.rest.RESTAPI.get_user">
+<code class="sig-name descname">get_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/zenora/impl/rest.html#RESTAPI.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.rest.RESTAPI.get_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fetch Dicord User</p>
+<p>This has to be the user’s snowflake ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>snowflake</strong> (<em>int</em>) – The channel ID of the specific channel you want to fetch</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Zenora partial user object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#zenora.users.PartialUser" title="zenora.users.PartialUser">zenora.users.PartialUser</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <hr class="docutils" />
 <div class="section" id="module-zenora.impl.factory">
@@ -245,7 +289,7 @@
 
 </dd></dl>
 
-</div>
+<span class="target" id="module-zenora.impl.query"></span></div>
 <hr class="docutils" />
 <div class="section" id="module-zenora.channels">
 <span id="channels"></span><h2>Channels<a class="headerlink" href="#module-zenora.channels" title="Permalink to this headline">¶</a></h2>
@@ -623,6 +667,43 @@
 </p>
 </dd>
 </dl>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-zenora.base.query"></span><dl class="py class">
+<dt id="zenora.base.query.Query">
+<em class="property">class </em><code class="sig-prename descclassname">zenora.base.query.</code><code class="sig-name descname">Query</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">token_type</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zenora/base/query.html#Query"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="zenora.base.query.Query.channel">
+<em class="property">abstract </em><code class="sig-name descname">channel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snonwflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/base/query.html#Query.channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the REST API query to get channels.</p>
+<p>Parameters:
+snowflake: int</p>
+<blockquote>
+<div><p>The channel ID of a Discord channel</p>
+</div></blockquote>
+<p>Returns:
+typing.Dict: A dictionary object that will be used to parse the data</p>
+<blockquote>
+<div><p>into objects</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zenora.base.query.Query.user">
+<em class="property">abstract </em><code class="sig-name descname">user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/base/query.html#Query.user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the REST API query to get user.</p>
+<p>Parameters:
+snowflake: int</p>
+<blockquote>
+<div><p>The channel ID of a Discord channel</p>
+</div></blockquote>
+<p>Returns:
+typing.Dict: A dictionary object that will be used to parse the data</p>
+<blockquote>
+<div><p>into objects</p>
+</div></blockquote>
 </dd></dl>
 
 </dd></dl>
