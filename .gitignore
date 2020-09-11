@@ -5,3 +5,5 @@ test_config.py
 zenora.egg-info/
 build/
 dist/
+.vscode/
+.idea/
