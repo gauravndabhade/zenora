@@ -3,10 +3,10 @@
 
 ## Key Points:
 
-1. ## Be welcoming and patient:
+## Be welcoming and patient:
 At Zenora we celebrate contributors from various backgrounds and experience levels. Please, be mindful others may not have your level of understanding. 
 
-2. ## Be respectful:  
+## Be respectful:  
 We understand that disagreements happen. However, you are responsible to be respectful and understanding. Disrespectful and unacceptable behavior includes, but not limited to:
 
 * Violent threats or language.
@@ -17,7 +17,7 @@ We understand that disagreements happen. However, you are responsible to be resp
 * Behavior that could be perceived as sexual attention.
 * Advocating for or encouraging any of the above behaviors.
 
-3. ## Note
+## Note
 This code is not complete and always a subject to change. It serves the purpose of a friendly guide to the Zenora community. 
 
 ## Scope:
