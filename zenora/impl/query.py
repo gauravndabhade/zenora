@@ -22,7 +22,7 @@
 
 
 import typing
-from zenora.utils.helpers import fetch, error_checker, patch
+from zenora.utils.helpers import fetch, error_checker, patch, delete
 from zenora.utils.endpoints import *
 from zenora.base.query import Query as QueryBase
 
@@ -100,4 +100,22 @@ class Query(QueryBase):
             params=args,
         )
         error_checker(data)
+        return data
+
+    def leave_guild(self, snowflake: int):
+        """Implementation for the REST API query to leave a guild.
+
+        Returns:
+        code: int
+            Code for response status. Will return 204 on success
+        """
+
+        data = delete(
+            BASE_URL + FETCH_CURRENT_USER + GET_GUILD.format(snowflake),
+            headers={
+                "Authorization": f"{self.token_type} {self.token}",
+                "Content-Type": "application/json",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
+            },
+        )
         return data

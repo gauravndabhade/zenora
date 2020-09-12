@@ -46,6 +46,13 @@ def patch(
     return r.json()
 
 
+def delete(
+    url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
+) -> typing.Dict:
+    r = requests.delete(url=url, headers=headers, json=params)
+    return r.status_code
+
+
 # Utility functions
 
 

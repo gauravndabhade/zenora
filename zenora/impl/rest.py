@@ -100,13 +100,47 @@ class RESTAPI(REST):
         """Modify current discord User
 
 
+        Parameters
+        ----------
+        args: typing.Dict
+                A dictionary containing the changes to the current user. This has to be either
+                their username, avatar or both
+
+        Example
+        -------
+        ```py
+        >>> some_api_instance.modify_current_user({'username' : 'FroggyMan', 'avatar' : 'https://cdn.discordapp.com/avatars/753561575532658738/0cf89f88a3ba4e226c6f1c72a9242dd8.png'})
+
+            User(id=753561575532658738, username=Zenora, discriminator=6423, avatar_url=https://cdn.discordapp.com/avatars/753561575532658738/380c68e7a6752e347ed875c2e11a05c4.png?size=1024,
+            flags=0, mention=<@753561575532658738>, bot=True, mfa_enabled=True, locale=en-US, verified=True,)
+        ```
+
         Returns
         -------
         zenora.users.User
-                Zenora partial user object
+                Zenora user object
 
         """
         if "avatar" in args:
             args["avatar"] = zenora.File(args["avatar"]).data
         response = Query(self.token, self.token_type).modify_me(args)
         return model_factory.parse_user(response=response, app=self)
+
+    def leave_guild(self, snowflake: int) -> typing.Optional[None]:
+        """Leave a Discord server (current user)
+
+        Parameters
+        ----------
+
+        snowflake: int
+                The ID of the Discord Server
+
+        Returns
+        -------
+        code: int
+            Code for response status. Will return 204 on success
+
+        """
+
+        response = Query(self.token, self.token_type).leave_guild(snowflake)
+        return response
