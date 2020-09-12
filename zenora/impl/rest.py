@@ -72,12 +72,12 @@ class RESTAPI(REST):
         ----------
 
         snowflake: int
-                The channel ID of the specific channel you want to fetch
+                The ID of the Discord User
 
         Returns
         -------
         zenora.users.User
-                Zenora partial user object
+                Zenora user object
 
         """
         response = Query(self.token, self.token_type).user(snowflake)
@@ -90,8 +90,8 @@ class RESTAPI(REST):
         Returns
         -------
         zenora.users.User
-                Zenora partial user object
+                Zenora user object
 
-        """    
+        """
         response = Query(self.token, self.token_type).current_user()
         return model_factory.parse_user(response=response, app=self)

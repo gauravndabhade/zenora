@@ -28,7 +28,16 @@ class Query(abc.ABC):
 
         Parameters:
         snowflake: int
-                The channel ID of a Discord channel
+                The ID of a Discord User
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+
+    @abc.abstractmethod
+    def current_user(self) -> typing.Dict:
+        """Interface for the REST API query to get current user.
 
         Returns:
         typing.Dict: A dictionary object that will be used to parse the data

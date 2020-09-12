@@ -27,9 +27,9 @@ from zenora.errors import InvalidUser, InvalidSnowflake
 
 
 class User:
-    """A partial user object for API response that doesn't give full info about user.
+    """A user object for API response.
 
-    :return: Zenora partial user object
+    :return: Zenora user object
     :rtype: zenora.users.User
     """
 

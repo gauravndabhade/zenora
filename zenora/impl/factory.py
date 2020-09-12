@@ -14,16 +14,36 @@ class Factory(BaseFactory):
         ----------
         response: typing.Dict
                 Discord API response as dictionary/JSON
-        snowflake: int
-                Snowflake ID of the channel
+        app: zenora.RESTAPI
+                Zenora REST API object
 
         Returns
         -------
         zenora.channels.GuildTextChannel
                 Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
         """
 
         return ChannelMapper.map(response, app)
 
     def parse_user(response: typing.Dict, app):
+        """Parses response data from Dicord API into user objects
+
+        Parameters
+        ----------
+        response: typing.Dict
+                Discord API response as dictionary/JSON
+        snowflake: int
+                Snowflake ID of the user
+
+        Returns
+        -------
+        zenora.users.User
+                Zenora user object
+        """
         return User(response, app)

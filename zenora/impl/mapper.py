@@ -37,6 +37,8 @@ class ChannelMapper(BaseChannelMapper):
         ----------
         response: typing.Dict
                 API response from Discord
+        app: zenora.RESTAPI
+                Zenora REST API object
 
         Returns
         -------

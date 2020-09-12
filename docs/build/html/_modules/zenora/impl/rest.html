@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zenora.impl.rest &mdash; Zenora 0.0.29 documentation</title>
+  <title>zenora.impl.rest &mdash; Zenora 0.0.31 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.29
+                0.0.31
               </div>
             
           
@@ -214,7 +214,7 @@
 <span class="sd">                Zenora DM text channel object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RESTAPI.get_user"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.get_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Fetch Dicord User</span>
@@ -226,16 +226,29 @@
 <span class="sd">        ----------</span>
 
 <span class="sd">        snowflake: int</span>
-<span class="sd">                The channel ID of the specific channel you want to fetch</span>
+<span class="sd">                The ID of the Discord User</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        zenora.users.PartialUser</span>
-<span class="sd">                Zenora partial user object</span>
+<span class="sd">        zenora.users.User</span>
+<span class="sd">                Zenora user object</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_user</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_user</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RESTAPI.get_current_user"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.get_current_user">[docs]</a>    <span class="k">def</span> <span class="nf">get_current_user</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Fetch the current Dicord User</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.users.User</span>
+<span class="sd">                Zenora user object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">current_user</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_user</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

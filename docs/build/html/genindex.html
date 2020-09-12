@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Zenora 0.0.29 documentation</title>
+  <title>Index &mdash; Zenora 0.0.31 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.29
+                0.0.31
               </div>
             
           
@@ -159,6 +159,7 @@
  | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
@@ -170,13 +171,14 @@
  | <a href="#R"><strong>R</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
  | <a href="#Z"><strong>Z</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.users.PartialUser.avatar_url">avatar_url() (zenora.users.PartialUser property)</a>
+      <li><a href="api-reference.html#zenora.users.User.avatar_url">avatar_url() (zenora.users.User property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -185,6 +187,10 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.bitrate">bitrate() (zenora.channels.GuildVoiceChannel property)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.users.User.bot">bot() (zenora.users.User property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -198,14 +204,24 @@
         <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.category_id">(zenora.channels.GuildVoiceChannel property)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.base.query.Query.channel">channel() (zenora.base.query.Query method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.query.Query.channel">(zenora.impl.query.Query method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.base.query.Query.channel">channel() (zenora.base.query.Query method)</a>
-</li>
       <li><a href="api-reference.html#zenora.base.mapper.ChannelMapper">ChannelMapper (class in zenora.base.mapper)</a>
 
       <ul>
         <li><a href="api-reference.html#zenora.impl.mapper.ChannelMapper">(class in zenora.impl.mapper)</a>
+</li>
+      </ul></li>
+      <li><a href="api-reference.html#zenora.base.query.Query.current_user">current_user() (zenora.base.query.Query method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.query.Query.current_user">(zenora.impl.query.Query method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -214,11 +230,19 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.users.PartialUser.discriminator">discriminator() (zenora.users.PartialUser property)</a>
+      <li><a href="api-reference.html#zenora.users.User.discriminator">discriminator() (zenora.users.User property)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.channels.DMTextChannel">DMTextChannel (class in zenora.channels)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.users.User.email">email() (zenora.users.User property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -234,7 +258,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.users.PartialUser.flags">flags() (zenora.users.PartialUser property)</a>
+      <li><a href="api-reference.html#zenora.users.User.flags">flags() (zenora.users.User property)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -248,6 +272,8 @@
         <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_channel">(zenora.impl.rest.RESTAPI method)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_current_user">get_current_user() (zenora.impl.rest.RESTAPI method)</a>
+</li>
       <li><a href="api-reference.html#zenora.base.rest.RESTAPI.get_user">get_user() (zenora.base.rest.RESTAPI method)</a>
 
       <ul>
@@ -279,7 +305,7 @@
 </li>
         <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.id">(zenora.channels.GuildVoiceChannel property)</a>
 </li>
-        <li><a href="api-reference.html#zenora.users.PartialUser.id">(zenora.users.PartialUser property)</a>
+        <li><a href="api-reference.html#zenora.users.User.id">(zenora.users.User property)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -294,6 +320,8 @@
         <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.is_nsfw">(zenora.channels.GuildVoiceChannel property)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.users.User.is_system">is_system() (zenora.users.User property)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -307,6 +335,10 @@
 </li>
       </ul></li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.users.User.locale">locale() (zenora.users.User property)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="M">M</h2>
@@ -318,6 +350,10 @@
         <li><a href="api-reference.html#zenora.impl.mapper.ChannelMapper.map">(zenora.impl.mapper.ChannelMapper method)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.users.User.mention">mention() (zenora.users.User property)</a>
+</li>
+      <li><a href="api-reference.html#zenora.users.User.mfa_enabled">mfa_enabled() (zenora.users.User property)</a>
+</li>
       <li><a href="api-reference.html#zenora.errors.MissingAccess">MissingAccess</a>
 </li>
       <li>
@@ -379,8 +415,6 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.users.PartialUser">PartialUser (class in zenora.users)</a>
-</li>
       <li><a href="api-reference.html#zenora.channels.GuildTextChannel.permission_overwrites">permission_overwrites() (zenora.channels.GuildTextChannel property)</a>
 
       <ul>
@@ -393,6 +427,8 @@
         <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.position">(zenora.channels.GuildVoiceChannel property)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.users.User.premium_type">premium_type() (zenora.users.User property)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -400,7 +436,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.base.query.Query">Query (class in zenora.base.query)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.query.Query">(class in zenora.impl.query)</a>
 </li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -433,13 +473,27 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="api-reference.html#zenora.base.query.Query.user">user() (zenora.base.query.Query method)</a>
+      <li><a href="api-reference.html#zenora.users.User">User (class in zenora.users)</a>
 </li>
+      <li><a href="api-reference.html#zenora.base.query.Query.user">user() (zenora.base.query.Query method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.query.Query.user">(zenora.impl.query.Query method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.user_limit">user_limit() (zenora.channels.GuildVoiceChannel property)</a>
 </li>
-      <li><a href="api-reference.html#zenora.users.PartialUser.username">username() (zenora.users.PartialUser property)</a>
+      <li><a href="api-reference.html#zenora.users.User.username">username() (zenora.users.User property)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.users.User.verified">verified() (zenora.users.User property)</a>
 </li>
   </ul></td>
 </tr></table>

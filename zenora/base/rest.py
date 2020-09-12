@@ -70,11 +70,11 @@ class RESTAPI(abc.ABC):
         ----------
 
         snowflake: int
-                The channel ID of the specific channel you want to fetch
+                The ID of the Discord User
 
         Returns
         -------
         zenora.users.User
-                Zenora partial user object
+                Zenora user object
 
         """

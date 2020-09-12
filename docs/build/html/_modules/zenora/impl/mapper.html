@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zenora.impl.mapper &mdash; Zenora 0.0.29 documentation</title>
+  <title>zenora.impl.mapper &mdash; Zenora 0.0.31 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.29
+                0.0.31
               </div>
             
           
@@ -182,7 +182,7 @@
 
 
 <div class="viewcode-block" id="ChannelMapper"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.mapper.ChannelMapper">[docs]</a><span class="k">class</span> <span class="nc">ChannelMapper</span><span class="p">(</span><span class="n">BaseChannelMapper</span><span class="p">):</span>
-<div class="viewcode-block" id="ChannelMapper.map"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.mapper.ChannelMapper.map">[docs]</a>    <span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">response</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
+<div class="viewcode-block" id="ChannelMapper.map"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.mapper.ChannelMapper.map">[docs]</a>    <span class="k">def</span> <span class="nf">map</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Implementation of the channel mapper.</span>
 
 <span class="sd">        Maps channel response to object according to channel type.</span>
@@ -191,6 +191,8 @@
 <span class="sd">        ----------</span>
 <span class="sd">        response: typing.Dict</span>
 <span class="sd">                API response from Discord</span>
+<span class="sd">        app: zenora.RESTAPI</span>
+<span class="sd">                Zenora REST API object</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -207,11 +209,11 @@
             <span class="k">raise</span> <span class="n">MissingAccess</span><span class="p">(</span><span class="s2">&quot;You don&#39;t have access to this channel&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">GuildTextChannel</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">GuildTextChannel</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">DMTextChannel</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">DMTextChannel</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">response</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">GuildVoiceChannel</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div></div>
+            <span class="k">return</span> <span class="n">GuildVoiceChannel</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

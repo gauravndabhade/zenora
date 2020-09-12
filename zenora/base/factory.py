@@ -6,14 +6,14 @@ import zenora
 class Factory(abc.ABC):
     @abc.abstractmethod
     def parse_channel(self, response: typing.Dict, snowflake: int) -> typing.Any:
-        """Interface of data parser for channel object
+        """Parses response data from Dicord API into channel objects
 
         Parameters
         ----------
         response: typing.Dict
                 Discord API response as dictionary/JSON
-        snowflake: int
-                Snowflake ID of the channel
+        app: zenora.RESTAPI
+                Zenora REST API object
 
         Returns
         -------
@@ -36,11 +36,11 @@ class Factory(abc.ABC):
         response: typing.Dict
                 Discord API response as dictionary/JSON
         snowflake: int
-                Snowflake ID of the channel
+                Snowflake ID of the user
 
         Returns
         -------
         zenora.users.User
-                Zenora partial user object
+                Zenora user object
 
         """

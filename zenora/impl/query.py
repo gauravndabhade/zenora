@@ -24,9 +24,10 @@
 import typing
 from zenora.utils.helpers import fetch, error_checker
 from zenora.utils.endpoints import *
+from zenora.base.query import Query as QueryBase
 
 
-class Query:
+class Query(QueryBase):
     __slots__ = ["token", "token_type"]
 
     def __init__(self, token: str, token_type: str):
@@ -56,7 +57,7 @@ class Query:
 
         Parameters:
         snowflake: int
-                The channel ID of a Discord channel
+                The ID of a Discord user
 
         Returns:
         typing.Dict: A dictionary object that will be used to parse the data
