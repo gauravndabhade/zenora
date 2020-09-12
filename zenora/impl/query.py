@@ -99,4 +99,5 @@ class Query(QueryBase):
             },
             params=args,
         )
+        error_checker(data)
         return data

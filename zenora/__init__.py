@@ -23,6 +23,7 @@
 
 from zenora.impl.rest import RESTAPI
 from zenora.utils.misc import *
+from zenora.file import File
 
 __author__ = "K.M Ahnaf Zamil"
 __copyright__ = "© 2020 K.M Ahnaf Zamil"

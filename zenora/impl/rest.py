@@ -23,11 +23,9 @@
 
 import typing
 import zenora
-import base64
 from zenora.base.rest import RESTAPI as REST
 from zenora.impl.factory import Factory as model_factory
 from zenora.impl.query import Query
-from ..utils.helpers import get_img
 
 
 class RESTAPI(REST):
@@ -109,10 +107,6 @@ class RESTAPI(REST):
 
         """
         if "avatar" in args:
-            # Downloading image from link
-            img = get_img(args["avatar"])  # get_img() is in utils/helpers.py
-            # Converting image to base64 (not working)
-            img_str = base64.b64encode(img)
-            args["avatar"] = img_str
+            args["avatar"] = zenora.File(args["avatar"]).data
         response = Query(self.token, self.token_type).modify_me(args)
         return model_factory.parse_user(response=response, app=self)

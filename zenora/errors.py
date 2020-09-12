@@ -55,3 +55,12 @@ class InvalidSnowflake(Exception):
     """
 
     pass
+
+
+class AvatarError(Exception):
+    """Raised when current user is changing avatar very fast.
+
+    :type Exception: zenora.errors.AvatarError
+    """
+
+    pass

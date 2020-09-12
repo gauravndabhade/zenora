@@ -42,7 +42,6 @@ def fetch(
 def patch(
     url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
 ) -> typing.Dict:
-    print(params)
     r = requests.patch(url=url, headers=headers, json=params)
     return r.json()
 
@@ -62,9 +61,12 @@ def error_checker(data: typing.Dict) -> None:
             raise MissingAccess(data.get("message"))
         else:
             raise InvalidSnowflake(data.get("message"))
+    elif data.get("avatar"):
+        if isinstance(data.get("avatar"), list):
+            raise AvatarError(data.get("avatar")[0])
 
 
-def get_img(url):
+def get_file(url):
     # Downloading Image from link
     r = requests.get(url=url, stream=True)
-    return r.content
+    return r
