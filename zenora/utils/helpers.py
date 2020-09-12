@@ -42,6 +42,7 @@ def fetch(
 def patch(
     url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
 ) -> typing.Dict:
+    print(params)
     r = requests.patch(url=url, headers=headers, json=params)
     return r.json()
 
@@ -69,4 +70,5 @@ def error_checker(data: typing.Dict) -> None:
 def get_file(url):
     # Downloading Image from link
     r = requests.get(url=url, stream=True)
+    print(r.content)
     return r

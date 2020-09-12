@@ -11,6 +11,7 @@ class File:
         file = get_file(url)
         path = url.split("?")
         encoded_body = base64.b64encode(file.content)
+        print(encoded_body)
         self.data = "data:{};base64,{}".format(
             mimetypes.guess_type(path[0]), encoded_body.decode()
         )
