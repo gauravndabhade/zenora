@@ -33,6 +33,9 @@ FETCH_CHANNEL = "/channels/{}"
 FETCH_USER = "/users/{}"
 FETCH_CURRENT_USER = "/users/@me"
 
+# Guilds
+GET_GUILD = "/guilds/{}"
+
 """CDN Endpoints"""
 
 AVATAR_URL = "/avatars/{}/{}.png?size=1024"

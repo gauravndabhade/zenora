@@ -25,12 +25,29 @@ import typing
 import requests
 from zenora.errors import *
 
+import base64
+import mimetypes
+import os
+
+# Request functions
+
 
 def fetch(
     url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
 ) -> typing.Dict:
     r = requests.get(url=url, headers=headers, params=params)
     return r.json()
+
+
+def patch(
+    url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
+) -> typing.Dict:
+    print(params)
+    r = requests.patch(url=url, headers=headers, json=params)
+    return r.json()
+
+
+# Utility functions
 
 
 def error_checker(data: typing.Dict) -> None:
@@ -45,3 +62,9 @@ def error_checker(data: typing.Dict) -> None:
             raise MissingAccess(data.get("message"))
         else:
             raise InvalidSnowflake(data.get("message"))
+
+
+def get_img(url):
+    # Downloading Image from link
+    r = requests.get(url=url, stream=True)
+    return r.content

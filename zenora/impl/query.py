@@ -22,7 +22,7 @@
 
 
 import typing
-from zenora.utils.helpers import fetch, error_checker
+from zenora.utils.helpers import fetch, error_checker, patch
 from zenora.utils.endpoints import *
 from zenora.base.query import Query as QueryBase
 
@@ -80,5 +80,23 @@ class Query(QueryBase):
         data = fetch(
             BASE_URL + FETCH_CURRENT_USER,
             headers={"Authorization": f"{self.token_type} {self.token}"},
+        )
+        return data
+
+    def modify_me(self, args: dict) -> typing.Dict:
+        """Implementation for the REST API query to modify current user.
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+        data = patch(
+            BASE_URL + FETCH_CURRENT_USER,
+            headers={
+                "Authorization": f"{self.token_type} {self.token}",
+                "Content-Type": "application/json",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
+            },
+            params=args,
         )
         return data

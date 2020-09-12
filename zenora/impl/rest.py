@@ -23,9 +23,11 @@
 
 import typing
 import zenora
+import base64
 from zenora.base.rest import RESTAPI as REST
 from zenora.impl.factory import Factory as model_factory
 from zenora.impl.query import Query
+from ..utils.helpers import get_img
 
 
 class RESTAPI(REST):
@@ -94,4 +96,23 @@ class RESTAPI(REST):
 
         """
         response = Query(self.token, self.token_type).current_user()
+        return model_factory.parse_user(response=response, app=self)
+
+    def modify_current_user(self, args: dict) -> typing.Any:
+        """Modify current discord User
+
+
+        Returns
+        -------
+        zenora.users.User
+                Zenora partial user object
+
+        """
+        if "avatar" in args:
+            # Downloading image from link
+            img = get_img(args["avatar"])  # get_img() is in utils/helpers.py
+            # Converting image to base64 (not working)
+            img_str = base64.b64encode(img)
+            args["avatar"] = img_str
+        response = Query(self.token, self.token_type).modify_me(args)
         return model_factory.parse_user(response=response, app=self)

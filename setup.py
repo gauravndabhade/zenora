@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="zenora",
-    version="0.0.30",
+    version="0.0.31",
     author="K.M Ahnaf Zamil",
     author_email="ahnafzamil@protonmail.com",
     description="A modern Discord REST API wrapper that allows you to access the data without running a bot.",
@@ -14,7 +14,6 @@ setuptools.setup(
     url="https://github.com/ahnaf-zamil/zenora",
     packages=["zenora", "zenora.impl", "zenora.base", "zenora.utils"],
     install_requires=[
-        "attrs",
         "requests",
         "typing",
     ],
