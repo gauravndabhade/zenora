@@ -74,7 +74,7 @@ class RESTAPI(abc.ABC):
 
         Returns
         -------
-        zenora.users.PartialUser
+        zenora.users.User
                 Zenora partial user object
 
         """

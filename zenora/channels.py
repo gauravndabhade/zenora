@@ -23,7 +23,7 @@
 
 import typing
 import datetime
-from zenora.users import PartialUser
+from zenora.users import User
 
 
 class GuildTextChannel:
@@ -34,10 +34,11 @@ class GuildTextChannel:
     :rtype: zenora.channels.GuildTextChannel
     """
 
-    __slots__ = ["data"]
+    __slots__ = ["data", "app"]
 
-    def __init__(self, data) -> None:
+    def __init__(self, data, app) -> None:
         self.data = data
+        self.app= app
 
     @property
     def id(self) -> typing.Optional[int]:
@@ -105,7 +106,7 @@ class GuildTextChannel:
         ]
         return "%s(%s)" % (
             self.__class__.__name__,
-            " ".join("%s=%r" % i for i in attrs),
+            " ".join("%s=%r," % i for i in attrs),
         )
 
 
@@ -133,13 +134,13 @@ class DMTextChannel:
         return self.data["last_message_id"]
 
     @property
-    def recipients(self) -> typing.List[PartialUser]:
+    def recipients(self) -> typing.List[User]:
         """Returns The recipients of the channel.
 
         :return: List of Zenora partial user objects
-        :rtype: typing.List[PartialUser]
+        :rtype: typing.List[User]
         """
-        return [PartialUser(i) for i in self.data["recipients"]]
+        return [User(i) for i in self.data["recipients"]]
 
     def __str__(self):
         """String representation of the model."""
@@ -150,7 +151,7 @@ class DMTextChannel:
         ]
         return "%s(%s)" % (
             self.__class__.__name__,
-            " ".join("%s=%r" % i for i in attrs),
+            " ".join("%s=%r," % i for i in attrs),
         )
 
 
@@ -227,5 +228,5 @@ class GuildVoiceChannel:
         ]
         return "%s(%s)" % (
             self.__class__.__name__,
-            " ".join("%s=%r" % i for i in attrs),
+            " ".join("%s=%r," % i for i in attrs),
         )

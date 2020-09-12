@@ -31,8 +31,11 @@ FETCH_CHANNEL = "/channels/{}"
 
 # Users
 FETCH_USER = "/users/{}"
-
+FETCH_CURRENT_USER = "/users/@me"
 
 """CDN Endpoints"""
 
 AVATAR_URL = "/avatars/{}/{}.png?size=1024"
+DEFAULT_AVATAR_URL = (
+    "https://discordapp.com/assets/322c936a8c8be1b803cd94861bdfa868.png"
+)

@@ -22,7 +22,6 @@
 
 
 from zenora.impl.rest import RESTAPI
-from zenora.channels import *
 from zenora.utils.misc import *
 
 

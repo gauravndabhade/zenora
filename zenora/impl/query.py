@@ -52,7 +52,7 @@ class Query:
         return data
 
     def user(self, snowflake: int) -> typing.Dict:
-        """Interface for the REST API query to get user.
+        """Implementation for the REST API query to get user.
 
         Parameters:
         snowflake: int
@@ -67,4 +67,17 @@ class Query:
             headers={"Authorization": f"{self.token_type} {self.token}"},
         )
         error_checker(data)
+        return data
+
+    def current_user(self) -> typing.Dict:
+        """Implementation for the REST API query to get current user.
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+        data = fetch(
+            BASE_URL + FETCH_CURRENT_USER,
+            headers={"Authorization": f"{self.token_type} {self.token}"},
+        )
         return data

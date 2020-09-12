@@ -21,22 +21,24 @@
 # SOFTWARE.
 
 import typing
+import zenora
 from zenora.utils.endpoints import *
 from zenora.errors import InvalidUser, InvalidSnowflake
 
 
-class PartialUser:
+class User:
     """A partial user object for API response that doesn't give full info about user.
 
     :return: Zenora partial user object
-    :rtype: zenora.users.PartialUser
+    :rtype: zenora.users.User
     """
 
-    __slots__ = ["data"]
+    __slots__ = ["data", "app"]
 
-    def __init__(self, data) -> None:
-        
+    def __init__(self, data, app) -> None:
+
         self.data = data
+        self.app = app
 
     @property
     def id(self) -> typing.Optional[int]:
@@ -56,12 +58,58 @@ class PartialUser:
     @property
     def avatar_url(self) -> typing.Optional[str]:
         """Returns the user's avatar url"""
-        return CDN_URL + AVATAR_URL.format(self.id, self.data["avatar"])
+        if self.data["avatar"] != None:
+            return CDN_URL + AVATAR_URL.format(self.id, self.data["avatar"])
+        return DEFAULT_AVATAR_URL
 
     @property
     def flags(self) -> typing.Optional[int]:
         """Returns the user's public flags """
         return self.data["public_flags"]
+
+    @property
+    def mention(self) -> typing.Optional[str]:
+        """Returns the user's mention"""
+        return f"<@{self.id}>"
+
+    @property
+    def bot(self) -> typing.Optional[bool]:
+        """Returns the user's mention"""
+        return self.data["bot"] if "bot" in self.data else None
+
+    @property
+    def is_system(self) -> typing.Optional[bool]:
+        """Returns if the user is a Discord System user or not"""
+        return self.data["system"] if "system" in self.data else None
+
+    @property
+    def mfa_enabled(self) -> typing.Optional[bool]:
+        """Returns whether the user has two factor enabled on their account"""
+        return self.data["mfa_enabled"] if "mfa_enabled" in self.data else None
+
+    @property
+    def locale(self) -> typing.Optional[str]:
+        """Returns the user's chosen language option"""
+        return self.data["locale"] if "locale" in self.data else None
+
+    @property
+    def verified(self) -> typing.Optional[bool]:
+        """Returns whether the email on this account has been verified"""
+        return self.data["verified"] if "verified" in self.data else None
+
+    @property
+    def email(self) -> typing.Optional[str]:
+        """Returns the user's email"""
+        return self.data["email"] if "email" in self.data else None
+
+    @property
+    def premium_type(self) -> typing.Optional[int]:
+        """Returns the type of Nitro subscription on a user's account"""
+        return (
+            [None, "Nitro Classic", "Nitro"][self.data["premium_type"]]
+            if "premium_type" in self.data
+            else None
+        )
 
     def __str__(self) -> typing.Optional[str]:
         """String representation of the model."""
@@ -71,8 +119,16 @@ class PartialUser:
             ("discriminator", self.discriminator),
             ("avatar_url", self.avatar_url),
             ("flags", self.flags),
+            ("mention", self.mention),
+            ("bot", self.bot),
+            ("is_system", self.is_system),
+            ("mfa_enabled", self.mfa_enabled),
+            ("locale", self.locale),
+            ("verified", self.verified),
+            ("email", self.email),
+            ("premium_type", self.premium_type),
         ]
         return "%s(%s)" % (
             self.__class__.__name__,
-            " ".join("%s=%r" % i for i in attrs),
+            " ".join(f"{i[0]}={i[1]}," for i in attrs if i[1] != None),
         )

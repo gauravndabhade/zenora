@@ -60,7 +60,7 @@ class RESTAPI(REST):
                 Zenora DM text channel object
         """
         response = Query(self.token, self.token_type).channel(snowflake)
-        return model_factory.parse_channel(response)
+        return model_factory.parse_channel(response=response, app=self)
 
     def get_user(self, snowflake: int) -> typing.Any:
         """Fetch Dicord User
@@ -76,9 +76,22 @@ class RESTAPI(REST):
 
         Returns
         -------
-        zenora.users.PartialUser
+        zenora.users.User
                 Zenora partial user object
 
         """
         response = Query(self.token, self.token_type).user(snowflake)
-        return model_factory.parse_user(response, snowflake)
+        return model_factory.parse_user(response=response, app=self)
+
+    def get_current_user(self) -> typing.Any:
+        """Fetch the current Dicord User
+
+
+        Returns
+        -------
+        zenora.users.User
+                Zenora partial user object
+
+        """    
+        response = Query(self.token, self.token_type).current_user()
+        return model_factory.parse_user(response=response, app=self)
