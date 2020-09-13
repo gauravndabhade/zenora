@@ -21,10 +21,12 @@
 # SOFTWARE.
 
 import zenora
-import test_config
+import os
 import unittest
 
-api = zenora.RESTAPI(test_config.token, "Bot")
+TOKEN = os.getenv("BOT_TOKEN")
+
+api = zenora.RESTAPI(TOKEN, "Bot", testing=True)
 
 
 class TestRESTAPI(unittest.TestCase):

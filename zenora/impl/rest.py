@@ -30,9 +30,9 @@ from zenora.impl.query import Query
 
 class RESTAPI(REST):
 
-    __slots__ = ["token", "token_type"]
+    __slots__ = ["token", "token_type", "testing"]
 
-    def __init__(self, token: str, token_type: str) -> None:
+    def __init__(self, token: str, token_type: str, testing: bool = False) -> None:
         self.token = token
         self.token_type = token_type
 
