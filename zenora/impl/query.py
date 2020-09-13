@@ -119,5 +119,7 @@ class Query(QueryBase):
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
             },
         )
-        raise GuildError("Invalid Guild") if data == 404 else print("")
+        if data == 404:
+            raise GuildError("Invalid Guild")
+
         return data

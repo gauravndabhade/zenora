@@ -36,14 +36,13 @@ class User:
     __slots__ = ["data", "app"]
 
     def __init__(self, data, app) -> None:
-
         self.data = data
         self.app = app
 
     @property
     def id(self) -> typing.Optional[int]:
         """Returns The snowflake ID of the user."""
-        return self.data["id"]
+        return int(self.data["id"])
 
     @property
     def username(self) -> typing.Optional[str]:

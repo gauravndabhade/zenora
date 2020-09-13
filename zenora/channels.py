@@ -38,12 +38,12 @@ class GuildTextChannel:
 
     def __init__(self, data, app) -> None:
         self.data = data
-        self.app= app
+        self.app = app
 
     @property
     def id(self) -> typing.Optional[int]:
         """Returns The snowflake ID of the channel."""
-        return self.data["id"]
+        return int(self.data["id"])
 
     @property
     def name(self) -> typing.Optional[str]:
@@ -58,7 +58,7 @@ class GuildTextChannel:
     @property
     def guild_id(self) -> typing.Optional[int]:
         """Returns the snowflake ID of the channel's guild."""
-        return self.data["guild_id"]
+        return int(self.data["guild_id"])
 
     @property
     def topic(self) -> typing.Optional[str]:
@@ -73,7 +73,7 @@ class GuildTextChannel:
     @property
     def last_message_id(self) -> typing.Optional[int]:
         """Returns the snowflake ID of the last message of the channel."""
-        return self.data["last_message_id"]
+        return int(self.data["last_message_id"])
 
     @property
     def rate_limit_per_user(self) -> datetime.timedelta:
@@ -88,7 +88,7 @@ class GuildTextChannel:
     @property
     def category_id(self) -> datetime.timedelta:
         """Returns the snowflake ID of the parant category of the channel."""
-        return self.data["parent_id"]
+        return int(self.data["parent_id"])
 
     def __str__(self):
         """String representation of the model."""
@@ -126,12 +126,12 @@ class DMTextChannel:
     @property
     def id(self) -> typing.Optional[int]:
         """Returns The snowflake ID of the channel."""
-        return self.data["id"]
+        return int(self.data["id"])
 
     @property
     def last_message_id(self) -> typing.Optional[int]:
         """Returns The last message ID of the channel."""
-        return self.data["last_message_id"]
+        return int(self.data["last_message_id"])
 
     @property
     def recipients(self) -> typing.List[User]:

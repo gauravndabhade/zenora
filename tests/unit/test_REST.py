@@ -20,20 +20,55 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from zenora import RESTAPI
-
+import zenora
+import test_config
 import unittest
 
+api = zenora.RESTAPI(test_config.token, "Bot")
 
-class testTesting(unittest.TestCase):
+
+class TestRESTAPI(unittest.TestCase):
 
     # Just trying Travis CI
     def setUp(self):
-        self.username = "frog"
-        self.age = 5
+        """Setting up the data that will be used to check the values from the API mock"""
+        self.channel = {"id": 753859569859690509, "name": "general"}
+        self.user = {"id": 479287754400989217, "username": "Ahnaf"}
+        self.me = {"id": 737603839145934898, "username": "Zenora Test Bot"}
+        self.leave_guild = 652717519848603658
 
-    def test_addition(self):
-        self.assertEqual(self.age, 5)
+    def test_get_channel(self):
+        """Testing the get_channel method with specific ID and expected data"""
+        channel = api.get_channel(self.channel["id"])
+        self.assertEqual(channel.id, self.channel["id"])
+        self.assertEqual(channel.name, self.channel["name"])
+
+    def test_get_user(self):
+        """Testing the get_user method with specific ID and expected data"""
+        user = api.get_user(self.user["id"])
+        self.assertEqual(user.id, self.user["id"])
+        self.assertEqual(user.username, self.user["username"])
+
+    def test_get_current_user(self):
+        """Testing the get_current_user method with specific ID and expected data"""
+        user = api.get_current_user()
+        self.assertEqual(user.id, self.me["id"])
+        self.assertEqual(user.username, self.me["username"])
+
+    def test_modify_current_user(self):
+        """Testing the modify_current_user method with specific ID and expected data"""
+        modified_user = api.modify_current_user({"username": "Zenora Test Bot"})
+        self.assertEqual(modified_user.id, self.me["id"])
+        self.assertEqual(modified_user.username, "Zenora Test Bot")
+
+    def test_leave_guild(self):
+        """Testing the leave_guild method with specific ID and expected data.
+
+        Note: Your bot has to be in a guild with the specific ID as the leave_guild's ID for this test to work.
+        You can change the leave_guild ID to the ID of a guild your bot is in.
+        """
+        left = api.leave_guild(self.leave_guild)
+        self.assertEqual(left, 204)
 
 
 if __name__ == "__main__":
