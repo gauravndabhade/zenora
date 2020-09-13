@@ -8,7 +8,7 @@ class testTesting(unittest.TestCase):
         self.age = 5
     
     def test_addition(self):
-        self.assertEqual(self.age+5,5)
+        self.assertEqual(self.age,5)
 
 
 
