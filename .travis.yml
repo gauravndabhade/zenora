@@ -5,7 +5,6 @@ python:
   - "3.8"
 os:
   - linux
-  - windows
 dist:
   - bionic
 cache: pip
