@@ -1,4 +1,4 @@
-test.py
+test_zen.py
 *__pycache__/
 *.pyc
 test_config.py
