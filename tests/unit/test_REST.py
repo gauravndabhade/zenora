@@ -21,12 +21,10 @@
 # SOFTWARE.
 
 import zenora
-import os
 import unittest
+import test_config
 
-TOKEN = os.getenv("BOT_TOKEN")
-
-api = zenora.RESTAPI(TOKEN, "Bot", testing=True)
+api = zenora.RESTAPI("Token", "Bot", testing=True)
 
 
 class TestRESTAPI(unittest.TestCase):
@@ -36,11 +34,14 @@ class TestRESTAPI(unittest.TestCase):
         """Setting up the data that will be used to check the values from the API mock"""
         self.channel = {"id": 753859569859690509, "name": "general"}
         self.user = {"id": 479287754400989217, "username": "Ahnaf"}
-        self.me = {"id": 737603839145934898, "username": "Zenora Test Bot"}
+        self.me = {"id": 479287754400989217, "username": "Ahnaf"}
         self.leave_guild = 652717519848603658
 
     def test_get_channel(self):
-        """Testing the get_channel method with specific ID and expected data"""
+        """Testing the get_channel method with specific ID and expected data
+
+        Note: Make sure the ID is of a server text channel because we are mocking an API response with a guild text channel response.
+        """
         channel = api.get_channel(self.channel["id"])
         self.assertEqual(channel.id, self.channel["id"])
         self.assertEqual(channel.name, self.channel["name"])
@@ -59,9 +60,9 @@ class TestRESTAPI(unittest.TestCase):
 
     def test_modify_current_user(self):
         """Testing the modify_current_user method with specific ID and expected data"""
-        modified_user = api.modify_current_user({"username": "Zenora Test Bot"})
+        modified_user = api.modify_current_user({"username": "Ahnaf"})
         self.assertEqual(modified_user.id, self.me["id"])
-        self.assertEqual(modified_user.username, "Zenora Test Bot")
+        self.assertEqual(modified_user.username, "Ahnaf")
 
     def test_leave_guild(self):
         """Testing the leave_guild method with specific ID and expected data.

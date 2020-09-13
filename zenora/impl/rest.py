@@ -35,6 +35,7 @@ class RESTAPI(REST):
     def __init__(self, token: str, token_type: str, testing: bool = False) -> None:
         self.token = token
         self.token_type = token_type
+        self.testing = testing
 
     def get_channel(self, snowflake: int) -> typing.Any:
         """Fetch Dicord Channel
@@ -59,7 +60,22 @@ class RESTAPI(REST):
         zenora.channels.DMTextChannel
                 Zenora DM text channel object
         """
-        response = Query(self.token, self.token_type).channel(snowflake)
+        if not self.testing:
+            response = Query(self.token, self.token_type).channel(snowflake)
+        else:
+            response = {
+                "id": "753859569859690509",
+                "last_message_id": "754623102561812511",
+                "type": 0,
+                "name": "general",
+                "position": 4,
+                "parent_id": "753859569859690506",
+                "topic": None,
+                "guild_id": "753859568764977194",
+                "permission_overwrites": [],
+                "nsfw": False,
+                "rate_limit_per_user": 0,
+            }
         return model_factory.parse_channel(response=response, app=self)
 
     def get_user(self, snowflake: int) -> typing.Any:
@@ -80,7 +96,16 @@ class RESTAPI(REST):
                 Zenora user object
 
         """
-        response = Query(self.token, self.token_type).user(snowflake)
+        if not self.testing:
+            response = Query(self.token, self.token_type).user(snowflake)
+        else:
+            response = {
+                "id": "479287754400989217",
+                "username": "Ahnaf",
+                "avatar": "9ab336b1e0506f6549d708591991d195",
+                "discriminator": "4346",
+                "public_flags": 128,
+            }
         return model_factory.parse_user(response=response, app=self)
 
     def get_current_user(self) -> typing.Any:
@@ -93,7 +118,16 @@ class RESTAPI(REST):
                 Zenora user object
 
         """
-        response = Query(self.token, self.token_type).current_user()
+        if not self.testing:
+            response = Query(self.token, self.token_type).current_user()
+        else:
+            response = {
+                "id": "479287754400989217",
+                "username": "Ahnaf",
+                "avatar": "9ab336b1e0506f6549d708591991d195",
+                "discriminator": "4346",
+                "public_flags": 128,
+            }
         return model_factory.parse_user(response=response, app=self)
 
     def modify_current_user(self, args: dict) -> typing.Any:
@@ -121,9 +155,18 @@ class RESTAPI(REST):
                 Zenora user object
 
         """
-        if "avatar" in args:
-            args["avatar"] = zenora.File(args["avatar"]).data
-        response = Query(self.token, self.token_type).modify_me(args)
+        if not self.testing:
+            if "avatar" in args:
+                args["avatar"] = zenora.File(args["avatar"]).data
+            response = Query(self.token, self.token_type).modify_me(args)
+        else:
+            response = {
+                "id": "479287754400989217",
+                "username": "Ahnaf",
+                "avatar": "9ab336b1e0506f6549d708591991d195",
+                "discriminator": "4346",
+                "public_flags": 128,
+            }
         return model_factory.parse_user(response=response, app=self)
 
     def leave_guild(self, snowflake: int) -> typing.Optional[None]:
@@ -141,6 +184,8 @@ class RESTAPI(REST):
             Code for response status. Will return 204 on success
 
         """
-
-        response = Query(self.token, self.token_type).leave_guild(snowflake)
+        if not self.testing:
+            response = Query(self.token, self.token_type).leave_guild(snowflake)
+        else:
+            response = 204
         return response
