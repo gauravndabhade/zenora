@@ -22,7 +22,6 @@
 
 import zenora
 import unittest
-import test_config
 
 api = zenora.RESTAPI("Token", "Bot", testing=True)
 
