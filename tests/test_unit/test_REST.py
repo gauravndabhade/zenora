@@ -1,4 +1,17 @@
-#Trying out travis ci
-def test_add():
-    x,y = 1,2
-    assert 1 + 4 != x+y, "Wrong addition"
+import unittest
+
+
+class testTesting(unittest.TestCase):
+
+
+    def setUp(self):
+        self.username = "frog"
+        self.age = 5
+    
+    def test_addition(self):
+        self.assertEqual(self.age+5,5)
+
+
+
+if __name__ == '__main__':
+    unittest.main()
