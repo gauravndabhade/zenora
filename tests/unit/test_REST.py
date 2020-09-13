@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+from zenora import RESTAPI
 
 import unittest
 
@@ -30,9 +31,10 @@ class testTesting(unittest.TestCase):
     def setUp(self):
         self.username = "frog"
         self.age = 5
-    
-    def test_addition(self):
-        self.assertEqual(self.age,5)
 
-if __name__ == '__main__':
+    def test_addition(self):
+        self.assertEqual(self.age, 5)
+
+
+if __name__ == "__main__":
     unittest.main()

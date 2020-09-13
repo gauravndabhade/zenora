@@ -1,6 +1,6 @@
 # Zenora.py
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Pypi](https://img.shields.io/pypi/v/zenora.svg) ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahnaf-zamil/zenora?include_prereleases) [![docs](https://img.shields.io/badge/documentation-up-00FF00.svg)](https://zenora-py.github.io) [![issues](https://img.shields.io/github/issues-raw/ahnaf-zamil/zenora)](https://github.com/nekokatt/ahnaf-zamil/zenora) [![prs](https://img.shields.io/github/issues-pr/ahnaf-zamil/zenora)](https://github.com/ahnaf-zamil/zenora/pulls) [![pyvers](https://img.shields.io/pypi/pyversions/zenora)](https://pypi.org/project/zenora)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) ![Pypi](https://img.shields.io/pypi/v/zenora.svg)![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/ahnaf-zamil/zenora?include_prereleases) [![docs](https://img.shields.io/badge/documentation-up-00FF00.svg)](https://zenora-py.github.io) [![issues](https://img.shields.io/github/issues-raw/ahnaf-zamil/zenora)](https://github.com/nekokatt/ahnaf-zamil/zenora) [![prs](https://img.shields.io/github/issues-pr/ahnaf-zamil/zenora)](https://github.com/ahnaf-zamil/zenora/pulls) [![pyvers](https://img.shields.io/pypi/pyversions/zenora)](https://pypi.org/project/zenora)
 
 [![Discord](https://discord.com/api/guilds/753859568764977194/widget.png?style=banner2)](https://discord.gg/2Buh3N9)
 
