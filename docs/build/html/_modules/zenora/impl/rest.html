@@ -294,7 +294,39 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">current_user_dms</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">current_user_dms</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;753798803806748883&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;last_message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;754896488441708595&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;recipients&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;406882130577063956&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;Hjacobs&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;aa6fb65225a58726292323435512925d&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;9441&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;736468127210012732&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;last_message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;736469839983542334&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                    <span class="s2">&quot;recipients&quot;</span><span class="p">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;503641822141349888&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;Someone&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;a_3df953ed0d85ebc1877762ed9fe29eae&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;5555&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                <span class="p">},</span>
+            <span class="p">]</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="RESTAPI.modify_current_user"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.modify_current_user">[docs]</a>    <span class="k">def</span> <span class="nf">modify_current_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
