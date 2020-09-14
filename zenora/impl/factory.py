@@ -28,7 +28,6 @@ class Factory(BaseFactory):
         zenora.channels.DMTextChannel
                 Zenora DM text channel object
         """
-
         return ChannelMapper.map(response, app)
 
     def parse_user(response: typing.Dict, app):

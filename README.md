@@ -31,7 +31,7 @@ python -m pip install zenora
 import zenora
 
 # Instantiate a REST API instance
-api = zenora.RESTAPI(token="your_token_here", token_type="your_token_type_here")
+api = zenora.RESTAPI(token="your_token_here")
 
 # Query API for getting channel
 # Zenora parses API response into Python objects for accessing data
@@ -41,7 +41,6 @@ channel = api.get_channel(732595879747256371)
 print(channel.name)
 
 ```
-
 
 ## Documentation
 

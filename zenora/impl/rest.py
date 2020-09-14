@@ -30,11 +30,10 @@ from zenora.impl.query import Query
 
 class RESTAPI(REST):
 
-    __slots__ = ["token", "token_type", "testing"]
+    __slots__ = ["token", "testing"]
 
-    def __init__(self, token: str, token_type: str, testing: bool = False) -> None:
+    def __init__(self, token: str, testing: bool = False) -> None:
         self.token = token
-        self.token_type = token_type
         self.testing = testing
 
     def get_channel(self, snowflake: int) -> typing.Any:
@@ -61,7 +60,7 @@ class RESTAPI(REST):
                 Zenora DM text channel object
         """
         if not self.testing:
-            response = Query(self.token, self.token_type).channel(snowflake)
+            response = Query(self.token).channel(snowflake)
         else:
             response = {
                 "id": "753859569859690509",
@@ -97,7 +96,7 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token, self.token_type).user(snowflake)
+            response = Query(self.token).user(snowflake)
         else:
             response = {
                 "id": "479287754400989217",
@@ -119,7 +118,7 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token, self.token_type).current_user()
+            response = Query(self.token).current_user()
         else:
             response = {
                 "id": "479287754400989217",
@@ -129,6 +128,52 @@ class RESTAPI(REST):
                 "public_flags": 128,
             }
         return model_factory.parse_user(response=response, app=self)
+
+    def get_my_dms(self) -> typing.List:
+        """Fetch the current Dicord user's DM channels
+
+
+        Returns
+        -------
+        typing.List
+                List of Zenora DMTextChannel objects
+
+        """
+
+        if not self.testing:
+            response = Query(self.token).current_user_dms()
+        else:
+            response = [
+                {
+                    "id": "753798803806748883",
+                    "last_message_id": "754896488441708595",
+                    "type": 1,
+                    "recipients": [
+                        {
+                            "id": "406882130577063956",
+                            "username": "Hjacobs",
+                            "avatar": "aa6fb65225a58726292323435512925d",
+                            "discriminator": "9441",
+                            "public_flags": 0,
+                        }
+                    ],
+                },
+                {
+                    "id": "736468127210012732",
+                    "last_message_id": "736469839983542334",
+                    "type": 1,
+                    "recipients": [
+                        {
+                            "id": "503641822141349888",
+                            "username": "Someone",
+                            "avatar": "a_3df953ed0d85ebc1877762ed9fe29eae",
+                            "discriminator": "5555",
+                            "public_flags": 128,
+                        }
+                    ],
+                },
+            ]
+        return [model_factory.parse_channel(response=i, app=self) for i in response]
 
     def modify_current_user(self, args: dict) -> typing.Any:
         """Modify current discord User
@@ -142,12 +187,13 @@ class RESTAPI(REST):
 
         Example
         -------
-        ```py
-        >>> some_api_instance.modify_current_user({'username' : 'FroggyMan', 'avatar' : 'https://cdn.discordapp.com/avatars/753561575532658738/0cf89f88a3ba4e226c6f1c72a9242dd8.png'})
+        .. code-block:: python
 
+
+            >>> some_api_instance.modify_current_user({'username' : 'FroggyMan', 'avatar' : 'https://cdn.discordapp.com/avatars/753561575532658738/0cf89f88a3ba4e226c6f1c72a9242dd8.png'})
             User(id=753561575532658738, username=Zenora, discriminator=6423, avatar_url=https://cdn.discordapp.com/avatars/753561575532658738/380c68e7a6752e347ed875c2e11a05c4.png?size=1024,
             flags=0, mention=<@753561575532658738>, bot=True, mfa_enabled=True, locale=en-US, verified=True,)
-        ```
+
 
         Returns
         -------
@@ -158,7 +204,7 @@ class RESTAPI(REST):
         if not self.testing:
             if "avatar" in args:
                 args["avatar"] = zenora.File(args["avatar"]).data
-            response = Query(self.token, self.token_type).modify_me(args)
+            response = Query(self.token).modify_me(args)
         else:
             response = {
                 "id": "479287754400989217",
@@ -185,7 +231,7 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token, self.token_type).leave_guild(snowflake)
+            response = Query(self.token).leave_guild(snowflake)
         else:
             response = 204
         return response

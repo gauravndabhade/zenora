@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Index &mdash; Zenora 0.0.31 documentation</title>
+  <title>Index &mdash; Zenora 0.0.32 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.31
+                0.0.32
               </div>
             
           
@@ -181,6 +181,10 @@
       <li><a href="api-reference.html#zenora.users.User.avatar_url">avatar_url() (zenora.users.User property)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.errors.AvatarError">AvatarError</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="B">B</h2>
@@ -210,18 +214,24 @@
         <li><a href="api-reference.html#zenora.impl.query.Query.channel">(zenora.impl.query.Query method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.base.mapper.ChannelMapper">ChannelMapper (class in zenora.base.mapper)</a>
 
       <ul>
         <li><a href="api-reference.html#zenora.impl.mapper.ChannelMapper">(class in zenora.impl.mapper)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.base.query.Query.current_user">current_user() (zenora.base.query.Query method)</a>
 
       <ul>
         <li><a href="api-reference.html#zenora.impl.query.Query.current_user">(zenora.impl.query.Query method)</a>
+</li>
+      </ul></li>
+      <li><a href="api-reference.html#zenora.base.query.Query.current_user_dms">current_user_dms() (zenora.base.query.Query method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.query.Query.current_user_dms">(zenora.impl.query.Query method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -258,6 +268,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api-reference.html#zenora.file.File">File (class in zenora.file)</a>
+</li>
       <li><a href="api-reference.html#zenora.users.User.flags">flags() (zenora.users.User property)</a>
 </li>
   </ul></td>
@@ -274,6 +286,12 @@
       </ul></li>
       <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_current_user">get_current_user() (zenora.impl.rest.RESTAPI method)</a>
 </li>
+      <li><a href="api-reference.html#zenora.base.rest.RESTAPI.get_my_dms">get_my_dms() (zenora.base.rest.RESTAPI method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.get_my_dms">(zenora.impl.rest.RESTAPI method)</a>
+</li>
+      </ul></li>
       <li><a href="api-reference.html#zenora.base.rest.RESTAPI.get_user">get_user() (zenora.base.rest.RESTAPI method)</a>
 
       <ul>
@@ -288,6 +306,8 @@
         <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel.guild_id">(zenora.channels.GuildVoiceChannel property)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.errors.GuildError">GuildError</a>
+</li>
       <li><a href="api-reference.html#zenora.channels.GuildTextChannel">GuildTextChannel (class in zenora.channels)</a>
 </li>
       <li><a href="api-reference.html#zenora.channels.GuildVoiceChannel">GuildVoiceChannel (class in zenora.channels)</a>
@@ -334,6 +354,14 @@
         <li><a href="api-reference.html#zenora.channels.GuildTextChannel.last_message_id">(zenora.channels.GuildTextChannel property)</a>
 </li>
       </ul></li>
+      <li><a href="api-reference.html#zenora.base.rest.RESTAPI.leave_guild">leave_guild() (zenora.base.rest.RESTAPI method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.query.Query.leave_guild">(zenora.impl.query.Query method)</a>
+</li>
+        <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.leave_guild">(zenora.impl.rest.RESTAPI method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="api-reference.html#zenora.users.User.locale">locale() (zenora.users.User property)</a>
@@ -356,6 +384,14 @@
 </li>
       <li><a href="api-reference.html#zenora.errors.MissingAccess">MissingAccess</a>
 </li>
+      <li><a href="api-reference.html#zenora.base.rest.RESTAPI.modify_current_user">modify_current_user() (zenora.base.rest.RESTAPI method)</a>
+
+      <ul>
+        <li><a href="api-reference.html#zenora.impl.rest.RESTAPI.modify_current_user">(zenora.impl.rest.RESTAPI method)</a>
+</li>
+      </ul></li>
+      <li><a href="api-reference.html#zenora.impl.query.Query.modify_me">modify_me() (zenora.impl.query.Query method)</a>
+</li>
       <li>
     module
 
@@ -371,6 +407,8 @@
         <li><a href="api-reference.html#module-zenora.channels">zenora.channels</a>
 </li>
         <li><a href="api-reference.html#module-zenora.errors">zenora.errors</a>
+</li>
+        <li><a href="api-reference.html#module-zenora.file">zenora.file</a>
 </li>
         <li><a href="api-reference.html#module-zenora.impl.factory">zenora.impl.factory</a>
 </li>
@@ -545,6 +583,13 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    zenora.file
+
+      <ul>
+        <li><a href="api-reference.html#module-zenora.file">module</a>
+</li>
+      </ul></li>
       <li>
     zenora.impl.factory
 

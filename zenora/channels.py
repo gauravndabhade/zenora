@@ -118,10 +118,11 @@ class DMTextChannel:
     :rtype: zenora.channel.DMTextChannel
     """
 
-    __slots__ = ["data"]
+    __slots__ = ["data", "app"]
 
-    def __init__(self, data) -> None:
+    def __init__(self, data, app) -> None:
         self.data = data
+        self.app = app
 
     @property
     def id(self) -> typing.Optional[int]:
@@ -131,7 +132,11 @@ class DMTextChannel:
     @property
     def last_message_id(self) -> typing.Optional[int]:
         """Returns The last message ID of the channel."""
-        return int(self.data["last_message_id"])
+        return (
+            int(self.data["last_message_id"])
+            if self.data["last_message_id"] != None
+            else None
+        )
 
     @property
     def recipients(self) -> typing.List[User]:
@@ -140,7 +145,7 @@ class DMTextChannel:
         :return: List of Zenora partial user objects
         :rtype: typing.List[User]
         """
-        return [User(i) for i in self.data["recipients"]]
+        return [User(i, self.app) for i in self.data["recipients"]]
 
     def __str__(self):
         """String representation of the model."""

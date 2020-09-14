@@ -23,7 +23,7 @@
 import zenora
 import unittest
 
-api = zenora.RESTAPI("Token", "Bot", testing=True)
+api = zenora.RESTAPI("Token", testing=True)
 
 
 class TestRESTAPI(unittest.TestCase):
@@ -56,6 +56,12 @@ class TestRESTAPI(unittest.TestCase):
         user = api.get_current_user()
         self.assertEqual(user.id, self.me["id"])
         self.assertEqual(user.username, self.me["username"])
+
+    def test_get_my_dms(self):
+        """Testing the get_current_user method with specific ID and expected data"""
+        dms = api.get_my_dms()
+        self.assertEqual(int(dms[0].id), 753798803806748883)
+        self.assertEqual(int(dms[1].id), 736468127210012732)
 
     def test_modify_current_user(self):
         """Testing the modify_current_user method with specific ID and expected data"""

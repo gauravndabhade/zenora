@@ -73,37 +73,37 @@ class User:
 
     @property
     def bot(self) -> typing.Optional[bool]:
-        """Returns the user's mention"""
+        """Returns the user's mention (optional)"""
         return self.data["bot"] if "bot" in self.data else None
 
     @property
     def is_system(self) -> typing.Optional[bool]:
-        """Returns if the user is a Discord System user or not"""
+        """Returns if the user is a Discord System user or not (optional)"""
         return self.data["system"] if "system" in self.data else None
 
     @property
     def mfa_enabled(self) -> typing.Optional[bool]:
-        """Returns whether the user has two factor enabled on their account"""
+        """Returns whether the user has two factor enabled on their account (optional)"""
         return self.data["mfa_enabled"] if "mfa_enabled" in self.data else None
 
     @property
     def locale(self) -> typing.Optional[str]:
-        """Returns the user's chosen language option"""
+        """Returns the user's chosen language option (optional)"""
         return self.data["locale"] if "locale" in self.data else None
 
     @property
     def verified(self) -> typing.Optional[bool]:
-        """Returns whether the email on this account has been verified"""
+        """Returns whether the email on this account has been verified (optional)"""
         return self.data["verified"] if "verified" in self.data else None
 
     @property
     def email(self) -> typing.Optional[str]:
-        """Returns the user's email"""
+        """Returns the user's email (optional)"""
         return self.data["email"] if "email" in self.data else None
 
     @property
     def premium_type(self) -> typing.Optional[int]:
-        """Returns the type of Nitro subscription on a user's account"""
+        """Returns the type of Nitro subscription on a user's account (optional)"""
         return (
             [None, "Nitro Classic", "Nitro"][self.data["premium_type"]]
             if "premium_type" in self.data

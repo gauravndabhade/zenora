@@ -31,9 +31,8 @@ from zenora.errors import *
 class Query(QueryBase):
     __slots__ = ["token", "token_type"]
 
-    def __init__(self, token: str, token_type: str):
+    def __init__(self, token: str):
         self.token = token
-        self.token_type = token_type
 
     def channel(self, snowflake: int) -> typing.Dict:
         """Implementation for the REST API query to get channels.
@@ -48,7 +47,7 @@ class Query(QueryBase):
         """
         data = fetch(
             BASE_URL + FETCH_CHANNEL.format(snowflake),
-            headers={"Authorization": f"{self.token_type} {self.token}"},
+            headers={"Authorization": f"{self.token}"},
         )
         error_checker(data)
         return data
@@ -66,7 +65,7 @@ class Query(QueryBase):
         """
         data = fetch(
             BASE_URL + FETCH_USER.format(snowflake),
-            headers={"Authorization": f"{self.token_type} {self.token}"},
+            headers={"Authorization": f"{self.token}"},
         )
         error_checker(data)
         return data
@@ -80,7 +79,7 @@ class Query(QueryBase):
         """
         data = fetch(
             BASE_URL + FETCH_CURRENT_USER,
-            headers={"Authorization": f"{self.token_type} {self.token}"},
+            headers={"Authorization": f"{self.token}"},
         )
         return data
 
@@ -94,7 +93,7 @@ class Query(QueryBase):
         data = patch(
             BASE_URL + FETCH_CURRENT_USER,
             headers={
-                "Authorization": f"{self.token_type} {self.token}",
+                "Authorization": f"{self.token}",
                 "Content-Type": "application/json",
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
             },
@@ -114,7 +113,7 @@ class Query(QueryBase):
         data = delete(
             BASE_URL + FETCH_CURRENT_USER + GET_GUILD.format(snowflake),
             headers={
-                "Authorization": f"{self.token_type} {self.token}",
+                "Authorization": f"{self.token}",
                 "Content-Type": "application/json",
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
             },
@@ -122,4 +121,17 @@ class Query(QueryBase):
         if data == 404:
             raise GuildError("Invalid Guild")
 
+        return data
+
+    def current_user_dms(self) -> typing.Dict:
+        """Implementation for the REST API query to fetch current user's DMs list
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+        data = fetch(
+            BASE_URL + DMS_LIST,
+            headers={"Authorization": f"{self.token}"},
+        )
         return data

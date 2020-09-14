@@ -69,7 +69,7 @@ class AvatarError(Exception):
 class GuildError(Exception):
     """Raised when the specified guild is either invalid or the user doesn't have access to it.
 
-    :type Exc
+    :type Exception: zenora.errors.GuildError
     """
 
     pass

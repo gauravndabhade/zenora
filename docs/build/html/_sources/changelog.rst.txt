@@ -6,6 +6,22 @@ Here you will find the changelogs for most if not every Zenora update since vers
 
 If you think anything is missing, make a pull request to add it, or contact me on discord.
 
+Version 0.0.32-alpha
+====================
+
+- Added ``modify_current_user()`` method that returns ``zenora.users.User`` object.
+
+- Added ``leave_guild()`` method to leavev servers.
+
+- Added ``get_my_dms()`` that will return a list of ``zenora.channels.DMTextChannel`` objects representing your DM chats.
+
+- Removed ``token_type`` parameter from ``zenora.RESTAPI`` class to remove a bug with the ``Bearer`` token type.
+
+- Released Zenora v0.0.32-alpha.
+
+----
+
+
 Version 0.0.31-alpha
 ====================
 
@@ -17,6 +33,8 @@ Version 0.0.31-alpha
 
 - Released Zenora v0.0.31-alpha.
 
+----
+
 Version 0.0.30-alpha
 ====================
 
@@ -25,6 +43,8 @@ Version 0.0.30-alpha
 - Added a nice welcome message that will be printed on module import.
 
 - Released Zenora v0.0.30-alpha.
+
+----
 
 Version 0.0.29-alpha
 ====================
@@ -37,6 +57,8 @@ Version 0.0.29-alpha
 
 - Released Zenora v0.0.29-alpha.
 
+----
+
 Version 0.0.20-alpha
 ====================
 
@@ -46,7 +68,7 @@ Version 0.0.20-alpha
 
 - Released Zenora v0.0.20-alpha.
 
-
+----
 
 Version 0.0.19-alpha
 ====================

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zenora.errors &mdash; Zenora 0.0.31 documentation</title>
+  <title>zenora.errors &mdash; Zenora 0.0.32 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.31
+                0.0.32
               </div>
             
           
@@ -206,6 +206,24 @@
     <span class="sd">&quot;&quot;&quot;Raised when snowflake ID for accessing API is not valid.</span>
 
 <span class="sd">    :type Exception: zenora.errors.InvalidSnowflake</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="AvatarError"><a class="viewcode-back" href="../../api-reference.html#zenora.errors.AvatarError">[docs]</a><span class="k">class</span> <span class="nc">AvatarError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raised when current user is changing avatar very fast.</span>
+
+<span class="sd">    :type Exception: zenora.errors.AvatarError</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="GuildError"><a class="viewcode-back" href="../../api-reference.html#zenora.errors.GuildError">[docs]</a><span class="k">class</span> <span class="nc">GuildError</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Raised when the specified guild is either invalid or the user doesn&#39;t have access to it.</span>
+
+<span class="sd">    :type Exception: zenora.errors.GuildError</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">pass</span></div>

@@ -7,6 +7,8 @@ import os
 
 
 class File:
+    """File object for sending file data to Discord in data URI scheme"""
+
     def __init__(self, url):
         file = get_file(url)
         path = url.split("?")

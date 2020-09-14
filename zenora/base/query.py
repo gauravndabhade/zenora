@@ -43,3 +43,12 @@ class Query(abc.ABC):
         typing.Dict: A dictionary object that will be used to parse the data
             into objects
         """
+
+    @abc.abstractmethod
+    def current_user_dms(self) -> typing.Dict:
+        """Interface for the REST API query to fetch current user's DMs list
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """

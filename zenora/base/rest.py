@@ -28,11 +28,11 @@ import abc
 class RESTAPI(abc.ABC):
     """Base interface for the implementation of the REST API."""
 
-    __slots__ = ["token", "token_type"]
+    __slots__ = ["token"]
 
-    def __init__(self, token: str, token_type: str) -> None:
+    def __init__(self, token: str, testing: bool) -> None:
         self.token = token
-        self.token_type = token_type
+        self.testing = testing
 
     @abc.abstractmethod
     def get_channel(self, snowflake: int) -> typing.Any:
@@ -80,6 +80,18 @@ class RESTAPI(abc.ABC):
         """
 
     @abc.abstractmethod
+    def get_my_dms(self) -> typing.List:
+        """Fetch the current Dicord user's DM channels
+
+
+        Returns
+        -------
+        typing.List
+                List of Zenora DMTextChannel objects
+
+        """
+
+    @abc.abstractmethod
     def modify_current_user(self, args: dict) -> typing.Any:
         """Modify current discord User
 
@@ -92,12 +104,14 @@ class RESTAPI(abc.ABC):
 
         Example
         -------
-        ```py
-        >>> some_api_instance.modify_current_user({'username' : 'FroggyMan', 'avatar' : 'https://cdn.discordapp.com/avatars/753561575532658738/0cf89f88a3ba4e226c6f1c72a9242dd8.png'})
+        .. code-block:: python
 
+
+            >>> some_api_instance.modify_current_user({'username' : 'FroggyMan', 'avatar' : 'https://cdn.discordapp.com/avatars/753561575532658738/0cf89f88a3ba4e226c6f1c72a9242dd8.png'})
             User(id=753561575532658738, username=Zenora, discriminator=6423, avatar_url=https://cdn.discordapp.com/avatars/753561575532658738/380c68e7a6752e347ed875c2e11a05c4.png?size=1024,
             flags=0, mention=<@753561575532658738>, bot=True, mfa_enabled=True, locale=en-US, verified=True,)
-        ```
+
+
 
         Returns
         -------
