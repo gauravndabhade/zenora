@@ -20,6 +20,8 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
+# DOES NOT WORK IF pip uninstall zenora
+# asd asdasd  adasdasd
 import zenora
 import unittest
 
