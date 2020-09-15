@@ -21,7 +21,7 @@
 # SOFTWARE.
 
 # DOES NOT WORK IF pip uninstall zenora
-#
+# asd asdasd  adasdasd
 import zenora
 import unittest
 
