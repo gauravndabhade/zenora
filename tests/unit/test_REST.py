@@ -48,31 +48,36 @@ class TestRESTAPI(unittest.TestCase):
         self.assertEqual(channel.name, self.channel["name"])
 
     def test_get_user(self):
-        """Testing the get_user method with specific ID and expected data"""
+        """Testing the get_user method with specific ID and expected mock data"""
         user = api.get_user(self.user["id"])
         self.assertEqual(user.id, self.user["id"])
         self.assertEqual(user.username, self.user["username"])
 
     def test_get_current_user(self):
-        """Testing the get_current_user method with specific ID and expected data"""
+        """Testing the get_current_user method with specific ID and expected mock data"""
         user = api.get_current_user()
         self.assertEqual(user.id, self.me["id"])
         self.assertEqual(user.username, self.me["username"])
 
     def test_get_my_dms(self):
-        """Testing the get_current_user method with specific ID and expected data"""
+        """Testing the get_current_user method with specific ID and expected mock data"""
         dms = api.get_my_dms()
         self.assertEqual(int(dms[0].id), 753798803806748883)
         self.assertEqual(int(dms[1].id), 736468127210012732)
 
+    def test_create_dm(self):
+        """Testing the create_dm method with specific recipient ID and expected mock data"""
+        dms = api.create_dm(406882130577063956)
+        self.assertEqual(int(dms.recipients[0].id), 406882130577063956)
+
     def test_modify_current_user(self):
-        """Testing the modify_current_user method with specific ID and expected data"""
+        """Testing the modify_current_user method with specific ID and expected mock data"""
         modified_user = api.modify_current_user({"username": "Ahnaf"})
         self.assertEqual(modified_user.id, self.me["id"])
         self.assertEqual(modified_user.username, "Ahnaf")
 
     def test_leave_guild(self):
-        """Testing the leave_guild method with specific ID and expected data.
+        """Testing the leave_guild method with specific ID and expected mock data.
 
         Note: Your bot has to be in a guild with the specific ID as the leave_guild's ID for this test to work.
         You can change the leave_guild ID to the ID of a guild your bot is in.

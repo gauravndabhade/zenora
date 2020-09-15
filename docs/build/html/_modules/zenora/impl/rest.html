@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>zenora.impl.rest &mdash; Zenora 0.0.32 documentation</title>
+  <title>zenora.impl.rest &mdash; Zenora 0.0.33 documentation</title>
   
 
   
@@ -59,7 +59,7 @@
             
             
               <div class="version">
-                0.0.32
+                0.0.33
               </div>
             
           
@@ -327,7 +327,9 @@
                     <span class="p">],</span>
                 <span class="p">},</span>
             <span class="p">]</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span><span class="p">]</span></div>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">i</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">response</span>
+        <span class="p">]</span></div>
 
 <div class="viewcode-block" id="RESTAPI.modify_current_user"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.modify_current_user">[docs]</a>    <span class="k">def</span> <span class="nf">modify_current_user</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Modify current discord User</span>
@@ -368,6 +370,39 @@
                 <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span>
             <span class="p">}</span>
         <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_user</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RESTAPI.create_dm"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.create_dm">[docs]</a>    <span class="k">def</span> <span class="nf">create_dm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">recipient_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">zenora</span><span class="o">.</span><span class="n">channels</span><span class="o">.</span><span class="n">DMTextChannel</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Creates DM text channel with a specified user according to snowflake ID</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        recipient_id: int</span>
+<span class="sd">                The snowflake ID of the user with whom the DM would be opened</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.channels.DMTextChannel</span>
+<span class="sd">                Zenora DM Text channel object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">create_dm</span><span class="p">(</span><span class="n">recipient_id</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;753798803806748883&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;last_message_id&quot;</span><span class="p">:</span> <span class="s2">&quot;754896488441708595&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;recipients&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;406882130577063956&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;Hjacobs&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;aa6fb65225a58726292323435512925d&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;9441&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="p">}</span>
+                <span class="p">],</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RESTAPI.leave_guild"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.leave_guild">[docs]</a>    <span class="k">def</span> <span class="nf">leave_guild</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Optional</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;Leave a Discord server (current user)</span>

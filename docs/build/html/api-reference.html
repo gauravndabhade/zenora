@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>API Reference &mdash; Zenora 0.0.32 documentation</title>
+  <title>API Reference &mdash; Zenora 0.0.33 documentation</title>
   
 
   
@@ -61,7 +61,7 @@
             
             
               <div class="version">
-                0.0.32
+                0.0.33
               </div>
             
           
@@ -171,6 +171,23 @@
 <dt id="zenora.impl.rest.RESTAPI">
 <em class="property">class </em><code class="sig-prename descclassname">zenora.impl.rest.</code><code class="sig-name descname">RESTAPI</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">testing</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zenora/impl/rest.html#RESTAPI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.rest.RESTAPI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#zenora.base.rest.RESTAPI" title="zenora.base.rest.RESTAPI"><code class="xref py py-class docutils literal notranslate"><span class="pre">zenora.base.rest.RESTAPI</span></code></a></p>
+<dl class="py method">
+<dt id="zenora.impl.rest.RESTAPI.create_dm">
+<code class="sig-name descname">create_dm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">recipient_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#zenora.channels.DMTextChannel" title="zenora.channels.DMTextChannel">zenora.channels.DMTextChannel</a><a class="reference internal" href="_modules/zenora/impl/rest.html#RESTAPI.create_dm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.rest.RESTAPI.create_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates DM text channel with a specified user according to snowflake ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>recipient_id</strong> (<em>int</em>) – The snowflake ID of the user with whom the DM would be opened</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Zenora DM Text channel object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#zenora.channels.DMTextChannel" title="zenora.channels.DMTextChannel">zenora.channels.DMTextChannel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt id="zenora.impl.rest.RESTAPI.get_channel">
 <code class="sig-name descname">get_channel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/zenora/impl/rest.html#RESTAPI.get_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.rest.RESTAPI.get_channel" title="Permalink to this definition">¶</a></dt>
@@ -372,6 +389,17 @@ snowflake: int</p>
 <blockquote>
 <div><p>The channel ID of a Discord channel</p>
 </div></blockquote>
+<p>Returns:
+typing.Dict: A dictionary object that will be used to parse the data</p>
+<blockquote>
+<div><p>into objects</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zenora.impl.query.Query.create_dm">
+<code class="sig-name descname">create_dm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">recipient_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/impl/query.html#Query.create_dm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.impl.query.Query.create_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implementation for the REST API query to create a DM with a specific user according to ID</p>
 <p>Returns:
 typing.Dict: A dictionary object that will be used to parse the data</p>
 <blockquote>
@@ -786,6 +814,23 @@ typing.Dict: A dictionary object that will be used to parse the data</p>
 <em class="property">class </em><code class="sig-prename descclassname">zenora.base.rest.</code><code class="sig-name descname">RESTAPI</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">token</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">testing</span><span class="p">:</span> <span class="n">bool</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Base interface for the implementation of the REST API.</p>
 <dl class="py method">
+<dt id="zenora.base.rest.RESTAPI.create_dm">
+<em class="property">abstract </em><code class="sig-name descname">create_dm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">recipient_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="#zenora.channels.DMTextChannel" title="zenora.channels.DMTextChannel">zenora.channels.DMTextChannel</a><span class="p">]</span><a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.create_dm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.create_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates DM text channel with a specified user according to snowflake ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>recipient_id</strong> (<em>int</em>) – The snowflake ID of the user with whom the DM would be opened</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Zenora DM Text channel object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#zenora.channels.DMTextChannel" title="zenora.channels.DMTextChannel">zenora.channels.DMTextChannel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="zenora.base.rest.RESTAPI.get_channel">
 <em class="property">abstract </em><code class="sig-name descname">get_channel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.get_channel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.get_channel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch Dicord Channel</p>
@@ -807,7 +852,7 @@ typing.Dict: A dictionary object that will be used to parse the data</p>
 
 <dl class="py method">
 <dt id="zenora.base.rest.RESTAPI.get_my_dms">
-<em class="property">abstract </em><code class="sig-name descname">get_my_dms</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.get_my_dms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.get_my_dms" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">get_my_dms</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="#zenora.channels.DMTextChannel" title="zenora.channels.DMTextChannel">zenora.channels.DMTextChannel</a><span class="p">]</span><a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.get_my_dms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.get_my_dms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch the current Dicord user’s DM channels</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
@@ -821,7 +866,7 @@ typing.Dict: A dictionary object that will be used to parse the data</p>
 
 <dl class="py method">
 <dt id="zenora.base.rest.RESTAPI.get_user">
-<em class="property">abstract </em><code class="sig-name descname">get_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.get_user" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">get_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="#zenora.users.User" title="zenora.users.User">zenora.users.User</a><span class="p">]</span><a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.get_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.get_user" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fetch Dicord User</p>
 <p>This has to be the user’s snowflake ID</p>
 <dl class="field-list simple">
@@ -856,7 +901,7 @@ typing.Dict: A dictionary object that will be used to parse the data</p>
 
 <dl class="py method">
 <dt id="zenora.base.rest.RESTAPI.modify_current_user">
-<em class="property">abstract </em><code class="sig-name descname">modify_current_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.modify_current_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.modify_current_user" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">modify_current_user</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; Optional<span class="p">[</span><a class="reference internal" href="#zenora.users.User" title="zenora.users.User">zenora.users.User</a><span class="p">]</span><a class="reference internal" href="_modules/zenora/base/rest.html#RESTAPI.modify_current_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.rest.RESTAPI.modify_current_user" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modify current discord User</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -866,7 +911,7 @@ their username, avatar or both</p>
 </dl>
 <p class="rubric">Example</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">some_api_instance</span><span class="o">.</span><span class="n">modify_current_user</span><span class="p">({</span><span class="s1">&#39;username&#39;</span> <span class="p">:</span> <span class="s1">&#39;FroggyMan&#39;</span><span class="p">,</span> <span class="s1">&#39;avatar&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://cdn.discordapp.com/avatars/753561575532658738/0cf89f88a3ba4e226c6f1c72a9242dd8.png&#39;</span><span class="p">})</span>
-<span class="go">User(id=753561575532658738, username=Zenora, discriminator=6423, avatar_url=https://cdn.discordapp.com/avatars/753561575532658738/380c68e7a6752e347ed875c2e11a05c4.png?size=1024,</span>
+<span class="go">User(id=753561575532658738, username=FroggyMan, discriminator=6423, avatar_url=https://cdn.discordapp.com/avatars/753561575532658738/380c68e7a6752e347ed875c2e11a05c4.png?size=1024,</span>
 <span class="go">flags=0, mention=&lt;@753561575532658738&gt;, bot=True, mfa_enabled=True, locale=en-US, verified=True,)</span>
 </pre></div>
 </div>
@@ -974,6 +1019,17 @@ typing.Dict: A dictionary object that will be used to parse the data</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="zenora.base.query.Query.create_dm">
+<em class="property">abstract </em><code class="sig-name descname">create_dm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">recipient_id</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/base/query.html#Query.create_dm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.create_dm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the REST API query to create a DM with a specific user according to ID</p>
+<p>Returns:
+typing.Dict: A dictionary object that will be used to parse the data</p>
+<blockquote>
+<div><p>into objects</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
 <dt id="zenora.base.query.Query.current_user">
 <em class="property">abstract </em><code class="sig-name descname">current_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/base/query.html#Query.current_user"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.current_user" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface for the REST API query to get current user.</p>
@@ -988,6 +1044,28 @@ typing.Dict: A dictionary object that will be used to parse the data</p>
 <dt id="zenora.base.query.Query.current_user_dms">
 <em class="property">abstract </em><code class="sig-name descname">current_user_dms</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/base/query.html#Query.current_user_dms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.current_user_dms" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interface for the REST API query to fetch current user’s DMs list</p>
+<p>Returns:
+typing.Dict: A dictionary object that will be used to parse the data</p>
+<blockquote>
+<div><p>into objects</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zenora.base.query.Query.leave_guild">
+<em class="property">abstract </em><code class="sig-name descname">leave_guild</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">snowflake</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/zenora/base/query.html#Query.leave_guild"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.leave_guild" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the REST API query to leave a guild.</p>
+<p>Returns:
+code: int</p>
+<blockquote>
+<div><p>Code for response status. Will return 204 on success</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="zenora.base.query.Query.modify_me">
+<em class="property">abstract </em><code class="sig-name descname">modify_me</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">args</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; Dict<a class="reference internal" href="_modules/zenora/base/query.html#Query.modify_me"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#zenora.base.query.Query.modify_me" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interface for the REST API query to modify current user.</p>
 <p>Returns:
 typing.Dict: A dictionary object that will be used to parse the data</p>
 <blockquote>

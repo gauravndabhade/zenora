@@ -173,7 +173,9 @@ class RESTAPI(REST):
                     ],
                 },
             ]
-        return [model_factory.parse_channel(response=i, app=self) for i in response]
+        return [
+            model_factory.parse_channel(response=i, app=self) for i in response
+        ]
 
     def modify_current_user(self, args: dict) -> typing.Any:
         """Modify current discord User
@@ -214,6 +216,39 @@ class RESTAPI(REST):
                 "public_flags": 128,
             }
         return model_factory.parse_user(response=response, app=self)
+
+    def create_dm(self, recipient_id: int) -> zenora.channels.DMTextChannel:
+        """Creates DM text channel with a specified user according to snowflake ID
+
+        Parameters
+        ----------
+        recipient_id: int
+                The snowflake ID of the user with whom the DM would be opened
+
+        Returns
+        -------
+        zenora.channels.DMTextChannel
+                Zenora DM Text channel object
+
+        """
+        if not self.testing:
+            response = Query(self.token).create_dm(recipient_id)
+        else:
+            response = {
+                "id": "753798803806748883",
+                "last_message_id": "754896488441708595",
+                "type": 1,
+                "recipients": [
+                    {
+                        "id": "406882130577063956",
+                        "username": "Hjacobs",
+                        "avatar": "aa6fb65225a58726292323435512925d",
+                        "discriminator": "9441",
+                        "public_flags": 0,
+                    }
+                ],
+            }
+        return model_factory.parse_channel(response=response, app=self)
 
     def leave_guild(self, snowflake: int) -> typing.Optional[None]:
         """Leave a Discord server (current user)
