@@ -33,21 +33,36 @@ import os
 
 
 def fetch(
-    url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
+    url: str,
+    headers: typing.Dict[str, str],
+    params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
     r = requests.get(url=url, headers=headers, params=params)
     return r.json()
 
 
+def post(
+    url: str,
+    headers: typing.Dict[str, str],
+    params: typing.Dict[str, str] = {},
+) -> typing.Dict:
+    r = requests.post(url=url, headers=headers, json=params)
+    return r.json()
+
+
 def patch(
-    url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
+    url: str,
+    headers: typing.Dict[str, str],
+    params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
     r = requests.patch(url=url, headers=headers, json=params)
     return r.json()
 
 
 def delete(
-    url: str, headers: typing.Dict[str, str], params: typing.Dict[str, str] = {}
+    url: str,
+    headers: typing.Dict[str, str],
+    params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
     r = requests.delete(url=url, headers=headers, json=params)
     return r.status_code

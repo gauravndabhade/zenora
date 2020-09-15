@@ -45,8 +45,35 @@ class Query(abc.ABC):
         """
 
     @abc.abstractmethod
+    def modify_me(self, args: dict) -> typing.Dict:
+        """Interface for the REST API query to modify current user.
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+
+    @abc.abstractmethod
+    def leave_guild(self, snowflake: int):
+        """Interface for the REST API query to leave a guild.
+
+        Returns:
+        code: int
+            Code for response status. Will return 204 on success
+        """
+
+    @abc.abstractmethod
     def current_user_dms(self) -> typing.Dict:
         """Interface for the REST API query to fetch current user's DMs list
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+
+    @abc.abstractmethod
+    def create_dm(self, recipient_id: int) -> typing.Dict:
+        """Interface for the REST API query to create a DM with a specific user according to ID
 
         Returns:
         typing.Dict: A dictionary object that will be used to parse the data

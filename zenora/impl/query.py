@@ -22,7 +22,7 @@
 
 
 import typing
-from zenora.utils.helpers import fetch, error_checker, patch, delete
+from zenora.utils.helpers import fetch, error_checker, patch, delete, post
 from zenora.utils.endpoints import *
 from zenora.base.query import Query as QueryBase
 from zenora.errors import *
@@ -133,5 +133,22 @@ class Query(QueryBase):
         data = fetch(
             BASE_URL + DMS_LIST,
             headers={"Authorization": f"{self.token}"},
+        )
+        return data
+
+    def create_dm(self, recipient_id: int) -> typing.Dict:
+        """Implementation for the REST API query to create a DM with a specific user according to ID
+
+        Returns:
+        typing.Dict: A dictionary object that will be used to parse the data
+            into objects
+        """
+        data = post(
+            BASE_URL + FETCH_CURRENT_USER + FETCH_CHANNEL[:-3],
+            headers={
+                "Authorization": f"{self.token}",
+                "Content-Type": "application/json",
+            },
+            params={"recipient_id": recipient_id},
         )
         return data

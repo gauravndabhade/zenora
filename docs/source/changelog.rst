@@ -6,6 +6,15 @@ Here you will find the changelogs for most if not every Zenora update since vers
 
 If you think anything is missing, make a pull request to add it, or contact me on discord.
 
+Version 0.0.33-alpha
+====================
+
+- Added ``create_dm(id)`` method that returns ``zenora.channels.DMTextChannel`` object.
+
+
+
+----
+
 Version 0.0.32-alpha
 ====================
 
