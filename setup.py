@@ -13,10 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/ahnaf-zamil/zenora",
     packages=["zenora", "zenora.impl", "zenora.base", "zenora.utils"],
-    install_requires=[
-        "requests",
-        "typing",
-    ],
+    install_requires=["requests", "typing", "pre-commit"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
