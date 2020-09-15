@@ -30,10 +30,13 @@ from ..users import User
 class RESTAPI(abc.ABC):
     """Base interface for the implementation of the REST API."""
 
-    __slots__ = ["token"]
+    __slots__ = ["token", "token_type", "testing"]
 
-    def __init__(self, token: str, testing: bool) -> None:
+    def __init__(
+        self, token: str, token_type: str, testing: bool = False
+    ) -> None:
         self.token = token
+        self.token_type = token_type
         self.testing = testing
 
     @abc.abstractmethod

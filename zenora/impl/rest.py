@@ -32,8 +32,11 @@ class RESTAPI(REST):
 
     __slots__ = ["token", "testing"]
 
-    def __init__(self, token: str, testing: bool = False) -> None:
+    def __init__(
+        self, token: str, token_type: str, testing: bool = False
+    ) -> None:
         self.token = token
+        self.token_type = token_type
         self.testing = testing
 
     def get_channel(self, snowflake: int) -> typing.Any:
@@ -60,7 +63,7 @@ class RESTAPI(REST):
                 Zenora DM text channel object
         """
         if not self.testing:
-            response = Query(self.token).channel(snowflake)
+            response = Query(self.token, self.token_type).channel(snowflake)
         else:
             response = {
                 "id": "753859569859690509",
@@ -96,7 +99,7 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token).user(snowflake)
+            response = Query(self.token, self.token_type).user(snowflake)
         else:
             response = {
                 "id": "479287754400989217",
@@ -118,7 +121,7 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token).current_user()
+            response = Query(self.token, self.token_type).current_user()
         else:
             response = {
                 "id": "479287754400989217",
@@ -141,7 +144,7 @@ class RESTAPI(REST):
         """
 
         if not self.testing:
-            response = Query(self.token).current_user_dms()
+            response = Query(self.token, self.token_type).current_user_dms()
         else:
             response = [
                 {
@@ -206,7 +209,7 @@ class RESTAPI(REST):
         if not self.testing:
             if "avatar" in args:
                 args["avatar"] = zenora.File(args["avatar"]).data
-            response = Query(self.token).modify_me(args)
+            response = Query(self.token, self.token_type).modify_me(args)
         else:
             response = {
                 "id": "479287754400989217",
@@ -232,7 +235,9 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token).create_dm(recipient_id)
+            response = Query(self.token, self.token_type).create_dm(
+                recipient_id
+            )
         else:
             response = {
                 "id": "753798803806748883",
@@ -266,7 +271,9 @@ class RESTAPI(REST):
 
         """
         if not self.testing:
-            response = Query(self.token).leave_guild(snowflake)
+            response = Query(self.token, self.token_type).leave_guild(
+                snowflake
+            )
         else:
             response = 204
         return response

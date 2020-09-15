@@ -25,7 +25,7 @@
 import zenora
 import unittest
 
-api = zenora.RESTAPI("Token", testing=True)
+api = zenora.RESTAPI("Token", "Bearer", testing=True)
 
 
 class TestRESTAPI(unittest.TestCase):
