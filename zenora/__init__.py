@@ -22,7 +22,7 @@
 
 
 from zenora.impl.rest import RESTAPI
-from zenora.utils.misc import *
+from zenora.utils.misc import print_welcome
 from zenora.file import File
 
 __author__ = "K.M Ahnaf Zamil"
@@ -32,7 +32,7 @@ __email__ = "ahnafzamil@protonmail.com"
 __issue_tracker__ = "https://github.com/ahnaf-zamil/zenora/issues"
 __license__ = "MIT"
 __url__ = "https://github.com/ahnaf-zamil/zenora/"
-__version__ = "0.0.32"
+__version__ = "0.0.33"
 __git_sha1__ = "HEAD"
 
 

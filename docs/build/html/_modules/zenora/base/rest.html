@@ -184,10 +184,13 @@
 <div class="viewcode-block" id="RESTAPI"><a class="viewcode-back" href="../../../api-reference.html#zenora.base.rest.RESTAPI">[docs]</a><span class="k">class</span> <span class="nc">RESTAPI</span><span class="p">(</span><span class="n">abc</span><span class="o">.</span><span class="n">ABC</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Base interface for the implementation of the REST API.&quot;&quot;&quot;</span>
 
-    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;token&quot;</span><span class="p">]</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="s2">&quot;token_type&quot;</span><span class="p">,</span> <span class="s2">&quot;testing&quot;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">testing</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">testing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span> <span class="o">=</span> <span class="n">token_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">testing</span> <span class="o">=</span> <span class="n">testing</span>
 
 <div class="viewcode-block" id="RESTAPI.get_channel"><a class="viewcode-back" href="../../../api-reference.html#zenora.base.rest.RESTAPI.get_channel">[docs]</a>    <span class="nd">@abc</span><span class="o">.</span><span class="n">abstractmethod</span>

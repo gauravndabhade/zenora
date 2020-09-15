@@ -11,6 +11,9 @@ Version 0.0.33-alpha
 
 - Added ``create_dm(id)`` method that returns ``zenora.channels.DMTextChannel`` object.
 
+- ``token_type`` parameter required to instantiate ``zenora.RESTAPI`` object to remove a bug with the ``Bearer`` token type.
+
+- Released Zenora v0.0.33-alpha.
 
 
 ----

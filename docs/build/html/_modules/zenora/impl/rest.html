@@ -186,8 +186,11 @@
 
     <span class="vm">__slots__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;token&quot;</span><span class="p">,</span> <span class="s2">&quot;testing&quot;</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">testing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">token_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">testing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">token</span> <span class="o">=</span> <span class="n">token</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span> <span class="o">=</span> <span class="n">token_type</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">testing</span> <span class="o">=</span> <span class="n">testing</span>
 
 <div class="viewcode-block" id="RESTAPI.get_channel"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.get_channel">[docs]</a>    <span class="k">def</span> <span class="nf">get_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
@@ -214,7 +217,7 @@
 <span class="sd">                Zenora DM text channel object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;753859569859690509&quot;</span><span class="p">,</span>
@@ -250,7 +253,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">user</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;479287754400989217&quot;</span><span class="p">,</span>
@@ -272,7 +275,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">current_user</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">current_user</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;479287754400989217&quot;</span><span class="p">,</span>
@@ -295,7 +298,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">current_user_dms</span><span class="p">()</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">current_user_dms</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="p">[</span>
                 <span class="p">{</span>
@@ -360,7 +363,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
             <span class="k">if</span> <span class="s2">&quot;avatar&quot;</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
                 <span class="n">args</span><span class="p">[</span><span class="s2">&quot;avatar&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">zenora</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="s2">&quot;avatar&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">data</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">modify_me</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">modify_me</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;479287754400989217&quot;</span><span class="p">,</span>
@@ -386,7 +389,9 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">create_dm</span><span class="p">(</span><span class="n">recipient_id</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">create_dm</span><span class="p">(</span>
+                <span class="n">recipient_id</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
                 <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;753798803806748883&quot;</span><span class="p">,</span>
@@ -420,7 +425,9 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
-            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">)</span><span class="o">.</span><span class="n">leave_guild</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">leave_guild</span><span class="p">(</span>
+                <span class="n">snowflake</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="mi">204</span>
         <span class="k">return</span> <span class="n">response</span></div></div>
