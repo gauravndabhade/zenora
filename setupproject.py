@@ -25,5 +25,5 @@ print(os.popen("pre-commit install").read())
 
 
 print(
-    "\n\n\n \033[93m ✥ Succesfully finished setting up development environment for Zenora {zenora.__version__} ✥ \033[0m\n\n"
+    f"\n\n\n\033[93m ✥ Succesfully finished setting up development environment for Zenora {zenora.__version__} ✥ \033[0m\n\n"
 )
