@@ -4,12 +4,8 @@ import os
 import zenora
 
 
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-
-
 print(
-    f"\n\n \033[93m ✥ Setting up development environment Zenora {zenora.__version__} ✥ \033[0m\n\n"
+    f"\n\n \033[93m ✥ Setting up development environment for Zenora {zenora.__version__} ✥ \033[0m\n\n"
 )
 
 subprocess.check_call(
@@ -26,3 +22,8 @@ subprocess.check_call(
 )
 
 print(os.popen("pre-commit install").read())
+
+
+print(
+    "\n\n\n \033[93m ✥ Succesfully finished setting up development environment for Zenora {zenora.__version__} ✥ \033[0m\n\n"
+)
