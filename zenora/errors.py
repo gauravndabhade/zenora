@@ -39,15 +39,6 @@ class InvalidUser(Exception):
     pass
 
 
-class InvalidUser(Exception):
-    """Raised when user with specified snowflake does not exist.
-
-    :type Exception: zenora.errors.InvalidUser
-    """
-
-    pass
-
-
 class InvalidSnowflake(Exception):
     """Raised when snowflake ID for accessing API is not valid.
 

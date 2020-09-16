@@ -23,11 +23,7 @@
 
 import typing
 import requests
-from zenora.errors import *
-
-import base64
-import mimetypes
-import os
+from zenora.errors import MissingAccess, AvatarError, InvalidSnowflake
 
 # Request functions
 
@@ -75,7 +71,7 @@ def error_checker(data: typing.Dict) -> None:
     if data.get("user_id") or data.get("channel_id"):
         raise InvalidSnowflake(
             data.get("user_id")[0]
-            if data.get("user_id") != None
+            if data.get("user_id") is not None
             else data.get("channel_id")[0]
         )
     elif data.get("code"):

@@ -22,8 +22,7 @@
 
 import typing
 import zenora
-from zenora.utils.endpoints import *
-from zenora.errors import InvalidUser, InvalidSnowflake
+from zenora.utils.endpoints import DEFAULT_AVATAR_URL, CDN_URL, AVATAR_URL
 
 
 class User:
@@ -57,7 +56,7 @@ class User:
     @property
     def avatar_url(self) -> typing.Optional[str]:
         """Returns the user's avatar url"""
-        if self.data["avatar"] != None:
+        if self.data["avatar"] is not None:
             return CDN_URL + AVATAR_URL.format(self.id, self.data["avatar"])
         return DEFAULT_AVATAR_URL
 
@@ -129,5 +128,5 @@ class User:
         ]
         return "%s(%s)" % (
             self.__class__.__name__,
-            " ".join(f"{i[0]}={i[1]}," for i in attrs if i[1] != None),
+            " ".join(f"{i[0]}={i[1]}," for i in attrs if i[1] is not None),
         )

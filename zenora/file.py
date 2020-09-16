@@ -2,8 +2,6 @@ import base64
 from urllib.parse import urlparse
 from .utils.helpers import get_file
 import mimetypes
-import urllib.parse
-import os
 
 
 class File:
