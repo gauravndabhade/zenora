@@ -22,7 +22,7 @@
 
 
 import typing
-from zenora.channels import *
+from zenora.channels import GuildTextChannel, GuildVoiceChannel, DMTextChannel
 from zenora.base.mapper import ChannelMapper as BaseChannelMapper
 from zenora.errors import MissingAccess
 

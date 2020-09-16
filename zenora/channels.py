@@ -134,7 +134,7 @@ class DMTextChannel:
         """Returns The last message ID of the channel."""
         return (
             int(self.data["last_message_id"])
-            if self.data["last_message_id"] != None
+            if self.data["last_message_id"] is not None
             else None
         )
 

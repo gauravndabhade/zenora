@@ -57,5 +57,5 @@ $$$$$$$$/  $$$$$$$/ $$/   $$/  $$$$$$/  $$/       $$$$$$$/
     ]
     print(
         random.choice(msg),
-        f"v{zenora.__version__}\n © K.M Ahnaf Zamil {datetime.now().strftime('%Y')}\n\n Python {platform.python_version()}\n Docs: https://zenora-py.github.io\n Github: https://github.com/ahnaf-zamil/zenora\n\n Thank you for using Zenora\n",
+        f"\033[94mv{zenora.__version__}\n © K.M Ahnaf Zamil {datetime.now().strftime('%Y')}\033[0m\n\n \033[92mPython {platform.python_version()}\033[0m\n Docs: \033[4mhttps://zenora-py.github.io\033[0m\n Github: \033[4mhttps://github.com/ahnaf-zamil/zenora\033[0m\n\n \033[95mThank you for using Zenora\n",
     )
