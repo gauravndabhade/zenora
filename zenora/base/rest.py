@@ -65,6 +65,44 @@ class RESTAPI(abc.ABC):
         """
 
     @abc.abstractmethod
+    def modify_channel(
+        self, snowflake: int, params: typing.Dict
+    ) -> typing.Any:
+        """Modify Discord Guild Channel
+
+        The snowflake parameter has to be the channel snowflake ID
+
+
+        Parameters
+        ----------
+
+        snowflake: int
+                The channel ID of the specific channel you want to fetch
+
+
+        Parameters
+        ----------
+        snowflake : int
+                The snowflake ID of the channel.
+
+        args: typing.Dict
+                A dictionary containing the changes to the current channel. Check this
+                link for all the changes applicable https://discord.com/developers/docs/resources/channel#modify-channel
+        """
+
+    @abc.abstractmethod
+    def delete_channel(self, snowflake: int) -> typing.Any:
+        """Delete Discord Guild Channel
+
+        The snowflake parameter has to be the channel snowflake ID
+
+        Parameters
+        ----------
+        snowflake : int
+                The snowflake ID of the channel.
+        """
+
+    @abc.abstractmethod
     def get_user(self, snowflake: int) -> typing.Optional[User]:
         """Fetch Dicord User
 

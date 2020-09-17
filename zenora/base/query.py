@@ -49,8 +49,32 @@ class Query(abc.ABC):
         """Interface for the REST API query to modify current user.
 
         Returns:
-        typing.Dict: A dictionary object that will be used to parse the data
-            into objects
+        typing.Dict:
+                A dictionary object that will be used to parse the data
+                into objects
+        """
+
+    @abc.abstractmethod
+    def modify_channel(self, channel_id: int, args: typing.Dict):
+        """Interface for the REST API query to modify guild channel.
+
+        Returns:
+        channel_id: int
+                The snowflake ID of the channel.
+        typing.Dict:
+                A dictionary object that will be used to parse the data
+                into objects
+
+        """
+
+    @abc.abstractmethod
+    def delete_channel(self, channel_id):
+        """Interface for the REST API query to delete guild channel.
+
+        Returns:
+        channel_id: int
+                The snowflake ID of the channel.
+
         """
 
     @abc.abstractmethod

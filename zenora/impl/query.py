@@ -110,6 +110,41 @@ class Query(QueryBase):
         error_checker(data)
         return data
 
+    def modify_channel(self, channel_id: int, args: typing.Dict):
+        """Implementation for the REST API query to modify guild channel.
+
+        Returns:
+        channel_id: int
+                The snowflake ID of the channel.
+        typing.Dict:
+                A dictionary object that will be used to parse the data
+                into objects
+
+        """
+        data = patch(
+            BASE_URL + FETCH_CHANNEL.format(channel_id),
+            headers={
+                "Authorization": f"{self.token_type} {self.token}",
+                "Content-Type": "application/json",
+            },
+            params=args,
+        )
+        return data
+
+    def delete_channel(self, channel_id):
+        """Implementation for the REST API query to delete guild channel.
+
+        Returns:
+        channel_id: int
+                The snowflake ID of the channel.
+
+        """
+        data = delete(
+            BASE_URL + FETCH_CHANNEL.format(channel_id),
+            headers={"Authorization": f"{self.token_type} {self.token}"},
+        )
+        return data.json()
+
     def leave_guild(self, snowflake: int):
         """Implementation for the REST API query to leave a guild.
 
@@ -126,10 +161,10 @@ class Query(QueryBase):
                 "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:80.0) Gecko/20100101 Firefox/80.0",
             },
         )
-        if data == 404:
+        if data.status_code == 404:
             raise GuildError("Invalid Guild")
 
-        return data
+        return data.status_code
 
     def current_user_dms(self) -> typing.Dict:
         """Implementation for the REST API query to fetch current user's DMs list

@@ -80,6 +80,40 @@ class RESTAPI(REST):
             }
         return model_factory.parse_channel(response=response, app=self)
 
+    def modify_channel(
+        self, snowflake: int, params: typing.Dict
+    ) -> typing.Any:
+        """Modify Discord Guild Channel
+
+        The snowflake parameter has to be the channel snowflake ID
+
+        Parameters
+        ----------
+        snowflake : int
+                The snowflake ID of the channel.
+
+        args: typing.Dict
+                A dictionary containing the changes to the current channel. Check this
+                link for all the changes applicable https://discord.com/developers/docs/resources/channel#modify-channel
+        """
+        response = Query(self.token, self.token_type).modify_channel(
+            snowflake, params
+        )
+        return model_factory.parse_channel(response=response, app=self)
+
+    def delete_channel(self, snowflake: int) -> typing.Any:
+        """Delete Discord Guild Channel
+
+        The snowflake parameter has to be the channel snowflake ID
+
+        Parameters
+        ----------
+        snowflake : int
+                The snowflake ID of the channel.
+        """
+        Query(self.token, self.token_type).delete_channel(snowflake)
+        return None
+
     def get_user(self, snowflake: int) -> typing.Any:
         """Fetch Dicord User
 

@@ -73,7 +73,11 @@ class GuildTextChannel:
     @property
     def last_message_id(self) -> typing.Optional[int]:
         """Returns the snowflake ID of the last message of the channel."""
-        return int(self.data["last_message_id"])
+        return (
+            int(self.data["last_message_id"])
+            if self.data["last_message_id"] is not None
+            else None
+        )
 
     @property
     def rate_limit_per_user(self) -> datetime.timedelta:
@@ -88,7 +92,38 @@ class GuildTextChannel:
     @property
     def category_id(self) -> datetime.timedelta:
         """Returns the snowflake ID of the parant category of the channel."""
-        return int(self.data["parent_id"])
+        return (
+            int(self.data["parent_id"])
+            if self.data["parent_id"] is not None
+            else None
+        )
+
+    def modify(self, args) -> typing.Any:
+        """Modify this channel
+
+
+        Parameters
+        ----------
+        args: typing.Dict
+                A dictionary containing the changes to the current channel. Check this
+                link for all the changes applicable https://discord.com/developers/docs/resources/channel#modify-channel
+
+        Returns
+        -------
+        zenora.channels.GuildTextChannel
+                Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
+        """
+        return self.app.modify_channel(self.id, args)
+
+    def delete(self) -> typing.Any:
+        """Delete this channel"""
+        return self.app.delete_channel(self.id)
 
     def __str__(self):
         """String representation of the model."""
@@ -211,12 +246,43 @@ class GuildVoiceChannel:
     @property
     def guild_id(self) -> typing.Optional[int]:
         """Returns the snowflake ID of the channel's guild."""
-        return self.data["guild_id"]
+        return int(self.data["guild_id"])
 
     @property
     def category_id(self) -> datetime.timedelta:
         """Returns the snowflake ID of the parant category of the channel."""
-        return self.data["parent_id"]
+        return (
+            int(self.data["parent_id"])
+            if self.data["parent_id"] is not None
+            else None
+        )
+
+    def modify(self, args) -> typing.Any:
+        """Modify this channel
+
+
+        Parameters
+        ----------
+        args: typing.Dict
+                A dictionary containing the changes to the current channel. Check this
+                link for all the changes applicable https://discord.com/developers/docs/resources/channel#modify-channel
+
+        Returns
+        -------
+        zenora.channels.GuildTextChannel
+                Zenora guild text channel object
+
+        zenora.channels.GuildVoiceChannel
+                Zenora guild voice channel object
+
+        zenora.channels.DMTextChannel
+                Zenora DM text channel object
+        """
+        return self.app.modify_channel(self.id, args)
+
+    def delete(self) -> typing.Any:
+        """Delete this channel"""
+        return self.app.delete_channel(self.id)
 
     def __str__(self):
         """String representation of the model."""

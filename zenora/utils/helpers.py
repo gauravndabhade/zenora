@@ -23,6 +23,7 @@
 
 import typing
 import requests
+from requests import Session
 from zenora.errors import MissingAccess, AvatarError, InvalidSnowflake
 
 # Request functions
@@ -34,6 +35,7 @@ def fetch(
     params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
     r = requests.get(url=url, headers=headers, params=params)
+    r.raise_for_status()
     return r.json()
 
 
@@ -42,7 +44,9 @@ def post(
     headers: typing.Dict[str, str],
     params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
+
     r = requests.post(url=url, headers=headers, json=params)
+    r.raise_for_status()
     return r.json()
 
 
@@ -52,6 +56,7 @@ def patch(
     params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
     r = requests.patch(url=url, headers=headers, json=params)
+    r.raise_for_status()
     return r.json()
 
 
@@ -61,7 +66,8 @@ def delete(
     params: typing.Dict[str, str] = {},
 ) -> typing.Dict:
     r = requests.delete(url=url, headers=headers, json=params)
-    return r.status_code
+    r.raise_for_status()
+    return r
 
 
 # Utility functions
