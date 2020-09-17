@@ -50,7 +50,7 @@ Check out the documentation at https://zenora-py.github.io
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriate.
+Please make sure to update tests as appropriate. Check the [contributing.md](https://github.com/ahnaf-zamil/zenora/blob/master/CONTRIBUTING.md) file for more info.
 
 ## Community
 
