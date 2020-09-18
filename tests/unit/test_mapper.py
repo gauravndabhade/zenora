@@ -48,8 +48,8 @@ class testChannelMapper(unittest.TestCase):
         self.app = {}
 
     def test_map(self):
-        c = ChannelMapper.map(self, self.response, self.app)
-        self.assertTrue(str(c).__contains__("GuildTextChannel"))
+        c = ChannelMapper.map(self.response, self.app)
+        self.assertTrue(int(c.id) == int(self.response["id"]))
 
 
 if __name__ == "__main__":
