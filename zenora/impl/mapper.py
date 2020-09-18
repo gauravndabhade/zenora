@@ -28,7 +28,7 @@ from zenora.errors import MissingAccess
 
 
 class ChannelMapper(BaseChannelMapper):
-    def map(self, response, app) -> typing.Any:
+    def map(response, app) -> typing.Any:
         """Implementation of the channel mapper.
 
         Maps channel response to object according to channel type.
