@@ -3,9 +3,9 @@ import testconfig
 
 api = zenora.RESTAPI(token=testconfig.token, token_type="Bot")
 
-channel = api.get_channel(755758557869244446)
+channel = api.get_channel(753859569859690509)
 
 
-print(channel)
-
-print(channel.delete())
+msg = channel.get_message(756748477316202626)
+print("Message: ", msg)
+print("Message Channel: ", msg.channel)

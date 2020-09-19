@@ -115,6 +115,21 @@ class RESTAPI(REST):
         Query(self.token, self.token_type).delete_channel(snowflake)
         return None
 
+    def get_channel_message(self, channel_id: int, msg_id: int) -> typing.Dict:
+        """Get a specific message from Discord channel
+
+        Parameters
+        ----------
+        channel_id : int
+                The snowflake ID of the channel.
+        msg_id : int
+                The snowflake ID of the message.
+        """
+        response = Query(self.token, self.token_type).message(
+            channel_id, msg_id
+        )
+        return model_factory.parse_message(response=response, app=self)
+
     def get_user(self, snowflake: int) -> typing.Any:
         """Fetch Dicord User
 

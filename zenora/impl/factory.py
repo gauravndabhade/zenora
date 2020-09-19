@@ -2,6 +2,7 @@ import typing
 import datetime
 
 from zenora.users import User
+from zenora.messages import Message
 from zenora.base.factory import Factory as BaseFactory
 from zenora.impl.mapper import ChannelMapper
 
@@ -46,3 +47,21 @@ class Factory(BaseFactory):
                 Zenora user object
         """
         return User(response, app)
+
+    def parse_message(response: typing.Dict, app) -> typing.Any:
+        """Parses response data from Dicord API into message object
+
+        Parameters
+        ----------
+        response: typing.Dict
+                Discord API response as dictionary/JSON
+        snowflake: int
+                Snowflake ID of the message
+
+        Returns
+        -------
+        zenora.messages.Message
+                Zenora message object
+
+        """
+        return Message(response, app)

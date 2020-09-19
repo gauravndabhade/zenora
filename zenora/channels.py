@@ -98,6 +98,11 @@ class GuildTextChannel:
             else None
         )
 
+    def get_message(self, id: int) -> typing.Dict:
+        """Returns a channel message according to given ID."""
+
+        return self.app.get_channel_message(channel_id=self.id, msg_id=id)
+
     def modify(self, args) -> typing.Any:
         """Modify this channel
 

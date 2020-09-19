@@ -5,7 +5,7 @@ import zenora
 
 class Factory(abc.ABC):
     @abc.abstractmethod
-    def parse_channel(response: typing.Dict, snowflake: int) -> typing.Any:
+    def parse_channel(response: typing.Dict, app) -> typing.Any:
         """Parses response data from Dicord API into channel objects
 
         Parameters
@@ -13,7 +13,7 @@ class Factory(abc.ABC):
         response: typing.Dict
                 Discord API response as dictionary/JSON
         app: zenora.RESTAPI
-                Zenora REST API object
+                Instance of the RESTAPI
 
         Returns
         -------
@@ -28,19 +28,37 @@ class Factory(abc.ABC):
         """
 
     @abc.abstractmethod
-    def parse_user(response: typing.Dict, snowflake: int) -> typing.Any:
+    def parse_user(response: typing.Dict, app) -> typing.Any:
         """Interface of data parser for user object
 
         Parameters
         ----------
         response: typing.Dict
                 Discord API response as dictionary/JSON
-        snowflake: int
-                Snowflake ID of the user
+        app: zenora.RESTAPI
+                Instance of the RESTAPI
 
         Returns
         -------
         zenora.users.User
                 Zenora user object
+
+        """
+
+    @abc.abstractmethod
+    def parse_message(response: typing.Dict, app) -> typing.Any:
+        """Interface of data parser for message object
+
+        Parameters
+        ----------
+        response: typing.Dict
+                Discord API response as dictionary/JSON
+        app: zenora.RESTAPI
+                Instance of the RESTAPI
+
+        Returns
+        -------
+        zenora.messages.Message
+                Zenora message object
 
         """
