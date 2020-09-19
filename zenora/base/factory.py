@@ -5,7 +5,7 @@ import zenora
 
 class Factory(abc.ABC):
     @abc.abstractmethod
-    def parse_channel(self, response: typing.Dict, snowflake: int) -> typing.Any:
+    def parse_channel(response: typing.Dict, snowflake: int) -> typing.Any:
         """Parses response data from Dicord API into channel objects
 
         Parameters
@@ -28,7 +28,7 @@ class Factory(abc.ABC):
         """
 
     @abc.abstractmethod
-    def parse_user(self, response: typing.Dict, snowflake: int) -> typing.Any:
+    def parse_user(response: typing.Dict, snowflake: int) -> typing.Any:
         """Interface of data parser for user object
 
         Parameters

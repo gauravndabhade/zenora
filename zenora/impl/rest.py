@@ -99,6 +99,7 @@ class RESTAPI(REST):
         response = Query(self.token, self.token_type).modify_channel(
             snowflake, params
         )
+
         return model_factory.parse_channel(response=response, app=self)
 
     def delete_channel(self, snowflake: int) -> typing.Any:

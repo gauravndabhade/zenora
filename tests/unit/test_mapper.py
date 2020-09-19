@@ -1,3 +1,4 @@
+
 # Zenora, a modern Python API wrapper for the Discord REST API
 #
 # Copyright (c) 2020 K.M Ahnaf Zamil
@@ -22,6 +23,7 @@
 
 # DOES NOT WORK IF pip uninstall zenora
 # asd asdasd  adasdasd
+
 import zenora
 from zenora.impl.mapper import ChannelMapper
 import unittest
