@@ -1,10 +1,6 @@
 import typing
 import datetime
 
-"""
-{'id': '756748477316202626', 'type': 0, 'content': 'change the branch', 'channel_id': '753859569859690509', 'author': {'id': '406882130577063956', 'username': 'Hjacobs', 'avatar': 'aa6fb65225a58726292323435512925d', 'discriminator': '9441', 'public_flags': 0}, 'attachments': [], 'embeds': [], 'mentions': [], 'mention_roles': [], 'pinned': False, 'mention_everyone': False, 'tts': False, 'timestamp': '2020-09-19T05:28:16.699000+00:00', 'edited_timestamp': None, 'flags': 0}
-
-"""
 
 
 class Message:
@@ -31,6 +27,49 @@ class Message:
     def channel(self):
         return self.app.get_channel(int(self.data["channel_id"]))
 
+    @property
+    def author(self):
+        return self.app.get_user(int(self.data["author"]["id"]))
+
+    @property
+    def attachments(self):
+        return self.data["attachments"]
+    
+    @property
+    def embeds(self):
+        return self.data["embeds"]
+    
+    @property
+    def mentions(self):
+        return self.data["mentions"]
+    
+    @property
+    def mention_roles(self):
+        return self.data["mention_roles"]
+
+    @property
+    def pinned(self):
+        return self.data["pinned"]
+
+    @property
+    def mention_everyone(self):
+        return self.data["mention_everyone"]
+
+    @property
+    def tts(self):
+        return self.data['tts']    
+    @property
+    def timestamp(self):
+        return self.data["timestamp"]
+
+    @property
+    def edited_timestamp(self):
+        return self.data["edited_timestamp"]
+
+    @property
+    def flags(self):
+        return self.data["flags"]
+
     def __str__(self):
         """String representation of the model."""
         attrs = [
@@ -38,6 +77,17 @@ class Message:
             ("type", self.type),
             ("content", self.content),
             ("channel", self.channel),
+            ("author", self.author),
+            ("attachments", self.attachments),
+            ("embeds", self.embeds),
+            ("metions", self.mentions),
+            ("metion_roles", self.mention_roles),
+            ("pinned", self.pinned),
+            ("mention_everyone", self.mention_everyone),
+            ("tts", self.tts),
+            ("timestamp", self.timestamp),
+            ("edited_timestamp", self.edited_timestamp),
+            ("flags", self.flags)
         ]
         return "%s(%s)" % (
             self.__class__.__name__,

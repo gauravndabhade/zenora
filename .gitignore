@@ -10,3 +10,4 @@ dist/
 logo.png
 testconfig.py
 docs/
+.testconfig.py.swp
