@@ -27,6 +27,7 @@ import unittest
 
 api = zenora.RESTAPI("Token", "Bearer", testing=True)
 
+
 class TestRESTAPI(unittest.TestCase):
 
     # Just trying Travis CI
@@ -37,10 +38,8 @@ class TestRESTAPI(unittest.TestCase):
         self.attachments = []
         self.content = "i forgot"
         self.author = {"id": 479287754400989217, "username": "Ahnaf"}
-        
 
-
-    def test_get_channel(self):
+    def test_get_message(self):
         """Testing the get_channel method with specific ID and expected data
 
         Note: Make sure the ID is of a server text channel because we are mocking an API response with a guild text channel response.
@@ -54,8 +53,6 @@ class TestRESTAPI(unittest.TestCase):
         self.assertEqual(msg.id, self.id)
         self.assertEqual(msg.author.username, self.author["username"])
         self.assertEqual(msg.attachments, self.attachments)
-    
-
 
 
 if __name__ == "__main__":
