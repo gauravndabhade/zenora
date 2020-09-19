@@ -5,7 +5,7 @@ from zenora.channels import GuildTextChannel
 
 class ChannelMapper(abc.ABC):
     @abc.abstractmethod
-    def map(self, response) -> typing.Any:
+    def map(response, app) -> typing.Any:
         """Interface of channel mapper
 
         Maps channel response to object according to channel type.
