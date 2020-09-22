@@ -3,7 +3,7 @@ import testconfig
 
 api = zenora.RESTAPI(token=testconfig.token, token_type="Bot")
 
-channel = api.get_channel(755758557869244446)
+channel = api.get_channel(testconfig.channel_id)
 
 
 print(channel)
