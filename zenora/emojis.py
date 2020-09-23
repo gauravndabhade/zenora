@@ -22,7 +22,9 @@ class Emoji:
 
     @property
     def user(self):
-        return self.data["user"]
+        if "user" in self.data:
+            return self.data["user"]
+        return None
 
     @property
     def require_colons(self):
