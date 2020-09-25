@@ -157,7 +157,8 @@
 
 <span class="kn">from</span> <span class="nn">zenora.users</span> <span class="kn">import</span> <span class="n">User</span>
 <span class="kn">from</span> <span class="nn">zenora.base.factory</span> <span class="kn">import</span> <span class="n">Factory</span> <span class="k">as</span> <span class="n">BaseFactory</span>
-<span class="kn">from</span> <span class="nn">zenora.impl.mapper</span> <span class="kn">import</span> <span class="n">ChannelMapper</span>
+<span class="kn">from</span> <span class="nn">zenora.impl.mapper</span> <span class="kn">import</span> <span class="n">ChannelMapper</span><span class="p">,</span> <span class="n">EmojiMapper</span>
+<span class="kn">from</span> <span class="nn">zenora.emojis</span> <span class="kn">import</span> <span class="n">Emoji</span>
 
 
 <div class="viewcode-block" id="Factory"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.factory.Factory">[docs]</a><span class="k">class</span> <span class="nc">Factory</span><span class="p">(</span><span class="n">BaseFactory</span><span class="p">):</span>
@@ -199,7 +200,50 @@
 <span class="sd">        zenora.users.User</span>
 <span class="sd">                Zenora user object</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="n">User</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">User</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Factory.parse_emojis"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.factory.Factory.parse_emojis">[docs]</a>    <span class="k">def</span> <span class="nf">parse_emojis</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse response data from Dicord to Zenora&#39;s emoji objects.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        response:</span>
+<span class="sd">                Discord API response as dictionary/JSON</span>
+<span class="sd">        snowflake: int</span>
+<span class="sd">                Snowflake ID of guild</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        :type: [zenora.emojis.Emoji]</span>
+<span class="sd">                Zenora emoji object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">listOfEmojis</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">emojis</span> <span class="o">=</span> <span class="n">response</span>
+        <span class="k">for</span> <span class="n">emoji</span> <span class="ow">in</span> <span class="n">emojis</span><span class="p">:</span>
+            <span class="n">listOfEmojis</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">EmojiMapper</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">emoji</span><span class="p">,</span> <span class="n">app</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">listOfEmojis</span></div>
+
+<div class="viewcode-block" id="Factory.parse_emoji"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.factory.Factory.parse_emoji">[docs]</a>    <span class="k">def</span> <span class="nf">parse_emoji</span><span class="p">(</span><span class="n">response</span><span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">,</span> <span class="n">app</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parse response data from Dicord into Zenora&#39;s emoji object</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        response:</span>
+<span class="sd">                Discord API response as dictionary/JSON</span>
+<span class="sd">        snowflake: int</span>
+<span class="sd">                Snowflake ID of guild</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.emojis.Emoji</span>
+<span class="sd">                Zenora emoji object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">EmojiMapper</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

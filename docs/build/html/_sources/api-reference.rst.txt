@@ -53,6 +53,12 @@ Files
 
 -----
 
+Emojis
+======
+.. automodule:: zenora.emojis
+    :members:
+    :member-order: groupwise
+
 Errors
 ======
 .. automodule:: zenora.errors

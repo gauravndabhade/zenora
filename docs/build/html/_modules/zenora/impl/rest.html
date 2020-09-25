@@ -253,6 +253,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">modify_channel</span><span class="p">(</span>
             <span class="n">snowflake</span><span class="p">,</span> <span class="n">params</span>
         <span class="p">)</span>
+
         <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_channel</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="RESTAPI.delete_channel"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.delete_channel">[docs]</a>    <span class="k">def</span> <span class="nf">delete_channel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">:</span>
@@ -461,6 +462,214 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">leave_guild</span><span class="p">(</span>
                 <span class="n">snowflake</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="mi">204</span>
+        <span class="k">return</span> <span class="n">response</span></div>
+
+<div class="viewcode-block" id="RESTAPI.get_emojis"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.get_emojis">[docs]</a>    <span class="k">def</span> <span class="nf">get_emojis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get list of all emojis for guild</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+
+<span class="sd">        snowflake: int</span>
+<span class="sd">            The ID of the guild</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        ------</span>
+<span class="sd">        :type [zenora.emojis.Emoji]</span>
+<span class="sd">            List of emoji&#39;s</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">get_emojis</span><span class="p">(</span><span class="n">snowflake</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_emoji&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;758255225319981076&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;require_colons&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;managed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="s2">&quot;animated&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="s2">&quot;available&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;592703489386348544&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;e07296d96c4f6c75b4fbbf25ec7d28b6&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;3272&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="p">},</span>
+                <span class="p">},</span>
+                <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_emoji2&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;758255421768335370&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;require_colons&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;managed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="s2">&quot;animated&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                    <span class="s2">&quot;available&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                    <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;592703489386348544&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;e07296d96c4f6c75b4fbbf25ec7d28b6&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;3272&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                    <span class="p">},</span>
+                <span class="p">},</span>
+            <span class="p">]</span>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_emojis</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RESTAPI.get_emoji"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.get_emoji">[docs]</a>    <span class="k">def</span> <span class="nf">get_emoji</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">emoji_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get emoji for guild by emoji_id</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        snowflake: int</span>
+<span class="sd">            The ID of the guild</span>
+<span class="sd">        emoji_id: int</span>
+<span class="sd">            The ID of emoji</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.emojis.Emoji</span>
+<span class="sd">            Zenora emoji object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">get_emoji</span><span class="p">(</span>
+                <span class="n">snowflake</span><span class="p">,</span> <span class="n">emoji_id</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_emoji&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;758255225319981076&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;require_colons&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;managed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;animated&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;available&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;592703489386348544&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;e07296d96c4f6c75b4fbbf25ec7d28b6&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;3272&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_emoji</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RESTAPI.post_emoji"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.post_emoji">[docs]</a>    <span class="k">def</span> <span class="nf">post_emoji</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">image_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">roles</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add new emoji for guild</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        snowflake: int</span>
+<span class="sd">            The ID of the guild</span>
+<span class="sd">        name: str</span>
+<span class="sd">            Name of the emoji</span>
+<span class="sd">        image_url: str</span>
+<span class="sd">            Address of image that used for emoji</span>
+<span class="sd">        roles: [int]</span>
+<span class="sd">            Array of snowflake IDs for Roles object</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.emojis.Emoji</span>
+<span class="sd">            Zenora emoji object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">post_emoji</span><span class="p">(</span>
+                <span class="n">snowflake</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">image_url</span><span class="p">,</span> <span class="n">roles</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Create new emoji object</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;test_emoji&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;758255225319981076&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;require_colons&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;managed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;animated&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;available&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;592703489386348544&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;e07296d96c4f6c75b4fbbf25ec7d28b6&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;3272&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_emoji</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RESTAPI.patch_emoji"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.patch_emoji">[docs]</a>    <span class="k">def</span> <span class="nf">patch_emoji</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">emoji_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">roles</span><span class="p">:</span> <span class="p">[</span><span class="nb">int</span><span class="p">]):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update emoji for guild</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        snowflake: int</span>
+<span class="sd">            The ID of the guild</span>
+<span class="sd">        name: str</span>
+<span class="sd">            Name of the emoji</span>
+<span class="sd">        roles: [int]</span>
+<span class="sd">            Array of snowflake IDs for Roles object</span>
+
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.emojis.Emoji</span>
+<span class="sd">            Zenora emoji object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">patch_emoji</span><span class="p">(</span>
+                <span class="n">snowflake</span><span class="p">,</span> <span class="n">emoji_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">roles</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Updated emoji name `test_emoji` to `new_test_emoji` for testing</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;new_test_emoji&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;roles&quot;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;758255225319981076&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;require_colons&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;managed&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;animated&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;available&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;user&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;592703489386348544&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;db&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;avatar&quot;</span><span class="p">:</span> <span class="s2">&quot;e07296d96c4f6c75b4fbbf25ec7d28b6&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;discriminator&quot;</span><span class="p">:</span> <span class="s2">&quot;3272&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;public_flags&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="p">},</span>
+            <span class="p">}</span>
+        <span class="k">return</span> <span class="n">model_factory</span><span class="o">.</span><span class="n">parse_emoji</span><span class="p">(</span><span class="n">response</span><span class="o">=</span><span class="n">response</span><span class="p">,</span> <span class="n">app</span><span class="o">=</span><span class="bp">self</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RESTAPI.delete_emoji"><a class="viewcode-back" href="../../../api-reference.html#zenora.impl.rest.RESTAPI.delete_emoji">[docs]</a>    <span class="k">def</span> <span class="nf">delete_emoji</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">snowflake</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">emoji_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Delete emoji for guild</span>
+
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        snowflake: int</span>
+<span class="sd">            The ID of the guild</span>
+<span class="sd">        emoji_id: int</span>
+<span class="sd">            The ID of emoji</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        zenora.emojis.Emoji</span>
+<span class="sd">            Zenora emoji object</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">testing</span><span class="p">:</span>
+            <span class="n">response</span> <span class="o">=</span> <span class="n">Query</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">token</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">token_type</span><span class="p">)</span><span class="o">.</span><span class="n">delete_emoji</span><span class="p">(</span>
+                <span class="n">snowflake</span><span class="p">,</span>
+                <span class="n">emoji_id</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">response</span> <span class="o">=</span> <span class="mi">204</span>
