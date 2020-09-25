@@ -105,7 +105,7 @@ class Query(abc.ABC):
         """
 
     @abc.abstractmethod
-    def get_emojis(self, snowflake):
+    def get_emojis(self, snowflake: int) -> typing.Dict:
         """
         Interface for the REST API query to get emojis for guild
 
@@ -115,7 +115,7 @@ class Query(abc.ABC):
         """
 
     @abc.abstractmethod
-    def get_emoji(self, snowflake, emoji_id):
+    def get_emoji(self, snowflake: int, emoji_id: int) -> typing.Dict:
         """
         Interface for the RESt API query to get emoji for guild and emoji_id
 
@@ -125,7 +125,9 @@ class Query(abc.ABC):
         """
 
     @abc.abstractmethod
-    def post_emoji(self, snowflake, name, image_url, roles):
+    def post_emoji(
+        self, snowflake: int, name: str, image_url: str, roles: [int]
+    ) -> typing.Dict:
         """
         Inerface for the RESt API query to add new emoji for guild
 
@@ -135,7 +137,9 @@ class Query(abc.ABC):
         """
 
     @abc.abstractmethod
-    def patch_emoji(self, snowflake, name, roles):
+    def patch_emoji(
+        self, snowflake: int, name: str, roles: [int]
+    ) -> typing.Dict:
         """
         Interface for the rest API query to update emoji for guild
 
@@ -145,7 +149,7 @@ class Query(abc.ABC):
         """
 
     @abc.abstractmethod
-    def delete_emoji(self, snowflake, emoji_id):
+    def delete_emoji(self, snowflake: int, emoji_id: int) -> typing.Dict:
         """
         Interface for the rest API query to delete emoji for guild
 

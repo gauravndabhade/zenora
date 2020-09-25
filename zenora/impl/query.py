@@ -199,7 +199,7 @@ class Query(QueryBase):
         )
         return data
 
-    def get_emojis(self, snowflake):
+    def get_emojis(self, snowflake: int) -> typing.Dict:
         """
         Interface for the REST API query to get all emojis form guild
 
@@ -217,7 +217,7 @@ class Query(QueryBase):
         )
         return data
 
-    def get_emoji(self, snowflake, emoji_id):
+    def get_emoji(self, snowflake: int, emoji_id: int) -> typing.Dict:
         """
         Interface for the REST API query to get a emoji by emoji_id from guild
 
@@ -234,7 +234,9 @@ class Query(QueryBase):
         )
         return data
 
-    def post_emoji(self, snowflake, name, image_url, roles):
+    def post_emoji(
+        self, snowflake: int, name: str, image_url: str, roles: [int]
+    ) -> typing.Dict:
         """
         Interface for the REST API query to add emoji to guild
 
@@ -256,7 +258,9 @@ class Query(QueryBase):
         )
         return data
 
-    def patch_emoji(self, snowflake, emoji_id, name, roles):
+    def patch_emoji(
+        self, snowflake: int, emoji_id: int, name: str, roles: [int]
+    ) -> typing.Dict:
         """
         Interface for the rest API query to update emoji for guild
 
@@ -274,7 +278,7 @@ class Query(QueryBase):
         )
         return data
 
-    def delete_emoji(self, snowflake, emoji_id):
+    def delete_emoji(self, snowflake: int, emoji_id: int) -> typing.Dict:
         """
         Interface for the rest API query to delete emoji form guild
 

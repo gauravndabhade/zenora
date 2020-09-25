@@ -48,7 +48,7 @@ class Factory(abc.ABC):
     @abc.abstractmethod
     def parse_emojis(response, app):
         """
-        Parse response data from Dicord API into list emoji objects
+        Parse response data from Dicord API into list of emoji objects
 
         Parameters
         ----------
@@ -59,7 +59,7 @@ class Factory(abc.ABC):
 
         Returns
         -------
-        :type: [zenora.emojis.Emoji]
+        [zenora.emojis.Emoji]
                 List of zenora emoji objects
         """
 

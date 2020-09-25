@@ -4,6 +4,7 @@ import datetime
 from zenora.users import User
 from zenora.base.factory import Factory as BaseFactory
 from zenora.impl.mapper import ChannelMapper, EmojiMapper
+from zenora.emojis import Emoji
 
 
 class Factory(BaseFactory):
@@ -47,7 +48,7 @@ class Factory(BaseFactory):
         """
         return User(response, app)
 
-    def parse_emojis(response, app):
+    def parse_emojis(response: typing.Dict, app):
         """
         Parse response data from Dicord to Zenora's emoji objects.
 
@@ -71,7 +72,7 @@ class Factory(BaseFactory):
 
         return listOfEmojis
 
-    def parse_emoji(response, app):
+    def parse_emoji(response: typing.Dict, app):
         """
         Parse response data from Dicord into Zenora's emoji object
 

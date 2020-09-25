@@ -1,6 +1,7 @@
 import abc
 import typing
 from zenora.channels import GuildTextChannel
+from zenora.emojis import Emoji
 
 
 class ChannelMapper(abc.ABC):

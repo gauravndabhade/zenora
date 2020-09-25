@@ -313,7 +313,7 @@ class RESTAPI(REST):
             response = 204
         return response
 
-    def get_emojis(self, snowflake):
+    def get_emojis(self, snowflake: int):
         """
         Get list of all emojis for guild
 
@@ -321,7 +321,7 @@ class RESTAPI(REST):
         ----------
 
         snowflake: int
-            The id of the guild
+            The ID of the guild
 
         Returns
         ------
@@ -367,15 +367,15 @@ class RESTAPI(REST):
             ]
         return model_factory.parse_emojis(response=response, app=self)
 
-    def get_emoji(self, snowflake, emoji_id):
+    def get_emoji(self, snowflake: int, emoji_id: int):
         """Get emoji for guild by emoji_id
 
         Parameters
         ----------
         snowflake: int
-            The id of the guild
+            The ID of the guild
         emoji_id: int
-            The id of emoji
+            The ID of emoji
 
         Returns
         -------
@@ -406,7 +406,9 @@ class RESTAPI(REST):
             }
         return model_factory.parse_emoji(response=response, app=self)
 
-    def post_emoji(self, snowflake, name, image_url, roles):
+    def post_emoji(
+        self, snowflake: int, name: str, image_url: str, roles: [int]
+    ):
         """
         Add new emoji for guild
 
@@ -414,13 +416,13 @@ class RESTAPI(REST):
         Parameters
         ----------
         snowflake: int
-            The id of the guild
+            The ID of the guild
         name: str
             Name of the emoji
         image_url: str
             Address of image that used for emoji
         roles: [int]
-            Array of snowflakes
+            Array of snowflake IDs for Roles object
 
         Returns
         -------
@@ -451,7 +453,9 @@ class RESTAPI(REST):
             }
         return model_factory.parse_emoji(response=response, app=self)
 
-    def patch_emoji(self, snowflake, emoji_id, name, roles):
+    def patch_emoji(
+        self, snowflake: int, emoji_id: int, name: str, roles: [int]
+    ):
         """
         Update emoji for guild
 
@@ -459,11 +463,11 @@ class RESTAPI(REST):
         Parameters
         ----------
         snowflake: int
-            The id of the guild
+            The ID of the guild
         name: str
             Name of the emoji
         roles: [int]
-            Array of snowflake
+            Array of snowflake IDs for Roles object
 
 
         Returns
@@ -495,7 +499,7 @@ class RESTAPI(REST):
             }
         return model_factory.parse_emoji(response=response, app=self)
 
-    def delete_emoji(self, snowflake, emoji_id):
+    def delete_emoji(self, snowflake: int, emoji_id: int):
         """
         Delete emoji for guild
 
@@ -503,9 +507,9 @@ class RESTAPI(REST):
         Parameters
         ----------
         snowflake: int
-            The id of the guild
+            The ID of the guild
         emoji_id: int
-            The id of emoji
+            The ID of emoji
 
         Returns
         -------

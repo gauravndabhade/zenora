@@ -65,7 +65,7 @@ class ChannelMapper(BaseChannelMapper):
 
 
 class EmojiMapper(BaseEmojiMapper):
-    def map(response, app):
+    def map(response: typing.Dict, app):
         """
         Implementation of the emoji mapper.
 
