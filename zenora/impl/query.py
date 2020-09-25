@@ -199,9 +199,9 @@ class Query(QueryBase):
         )
         return data
 
-    def get_emojis(self, snowflake: int) -> typing.Dict:
+    def get_emoji(self, snowflake: int) -> typing.Dict:
         """
-        Interface for the REST API query to get all emojis form guild
+        Interface for the REST API query to get all emoji form the guild
 
         Returns:
         Dict: A dictionary object that will be used to parse the data
@@ -219,7 +219,7 @@ class Query(QueryBase):
 
     def get_emoji(self, snowflake: int, emoji_id: int) -> typing.Dict:
         """
-        Interface for the REST API query to get a emoji by emoji_id from guild
+        Interface for the REST API query to get an emoji by emoji_id from the guild
 
         Returns:
         Dict: A dictionary object that will be used to parse the data
@@ -238,7 +238,7 @@ class Query(QueryBase):
         self, snowflake: int, name: str, image_url: str, roles: [int]
     ) -> typing.Dict:
         """
-        Interface for the REST API query to add emoji to guild
+        Interface for the REST API query to add an emoji to the guild
 
         Returns:
         Dict: A dictionary object that will be used to parse the data
@@ -262,7 +262,7 @@ class Query(QueryBase):
         self, snowflake: int, emoji_id: int, name: str, roles: [int]
     ) -> typing.Dict:
         """
-        Interface for the rest API query to update emoji for guild
+        Interface for the rest API query to update an emoji for the guild
 
         Returns:
         Dict: A dictionary object that will be used to parse the data
@@ -280,11 +280,11 @@ class Query(QueryBase):
 
     def delete_emoji(self, snowflake: int, emoji_id: int) -> typing.Dict:
         """
-        Interface for the rest API query to delete emoji form guild
+        Interface for the rest API query to delete an emoji form the guild
 
         Returns:
         code: int
-            Code for response status. Will return 204 on success
+            Code for response status returns 204 on success
         """
         data = delete(
             BASE_URL + GET_GUILD.format(snowflake) + EMOJI_ID.format(emoji_id),
